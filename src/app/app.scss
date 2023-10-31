@@ -2,50 +2,51 @@
 1. Default Styles
 =========================================================================*/
 @import "public/scss/default/_variables";
-// @import "default/reset";
-// @import "default/typography";
-// @import "default/form";
-// @import "default/classes";
+@import "public/scss/default/_reset";
+@import "public/scss/default/_typography";
+@import "public/scss/default/_forms";
+@import "public/scss/default/_classes";
 
 /*=======================================================================
 2. Elements Styles
 =========================================================================*/
-// @import "elements/animate";
-// @import "elements/back-top";
-// @import "elements/breadcrumb";
-// @import "elements/button";
-// @import "elements/pagination";
-// @import "elements/section-heading";
-// @import "elements/slick";
+@import "public/scss/elements/animate";
+@import "public/scss/elements/back-top";
+@import "public/scss/elements/breadcrumb";
+@import "public/scss/elements/button";
+@import "public/scss/elements/pagination";
+@import "public/scss/elements/slick";
 
 /*=======================================================================
 3. Template Styles
 =========================================================================*/
-// @import "template/about";
-// @import "template/banner";
-// @import "template/brand";
-// @import "template/call-to-action";
-// @import "template/case-study";
-// @import "template/contact";
-// @import "template/counterup";
-// @import "template/faq";
-// @import "template/pricing";
-// @import "template/process";
-// @import "template/project";
-// @import "template/service";
-// @import "template/team";
-// @import "template/testimonial";
-// @import "template/why-choose";
-// @import "template/common-pages";
-// @import "template/splash.scss";
-// @import "template/onepage";
+@import "public/scss/template/_about";
+@import "public/scss/template/_banner";
+@import "public/scss/template/_brand";
+@import "public/scss/template/_call-to-action";
+@import "public/scss/template/_case-study";
+@import "public/scss/template/_contact";
+@import "public/scss/template/_counterup";
+@import "public/scss/template/_faq";
+@import "public/scss/template/_pricing";
+@import "public/scss/template/_process";
+@import "public/scss/template/_project";
+@import "public/scss/template/_service";
+@import "public/scss/template/_team";
+@import "public/scss/template/_testimonial";
+@import "public/scss/template/_why-choose";
+@import "public/scss/template/_common-pages";
+@import "public/scss/template/_splash.scss";
+@import "public/scss/template/_onepage";
 
 /*=======================================================================
 4.Blocks Styles 
 =========================================================================*/
 @import "public/scss/header/_header.scss";
-// @import "blog/blog";
-// @import "blog/widget";
+@import "public/scss/header/_section-heading.scss";
+@import "public/scss/blog/_blog.scss";
+@import "public/scss/blog/_widget.scss";
+
 // @import "footer/footer";
 
 /*=======================================================================
