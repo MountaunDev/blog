@@ -7,45 +7,45 @@ const Nav = () => {
     <nav className="mainmenu-nav">
       <ul className="mainmenu">
         <li className="menu-item-has-children">
-          <p>
+          <a>
             Digital Agency <FaAngleDown />{" "}
-          </p>
+          </a>
           <ul className="axil-submenu">
             <li>
-              <p>Digital Agency</p>
+              <a>Digital Agency</a>
             </li>
             <li>
-              <p>Creative Agency</p>
+              <a>Creative Agency</a>
             </li>
             <li>
-              <p>Personal Portfolio</p>
+              <a>Personal Portfolio</a>
             </li>
             <li>
-              <p>Home Startup</p>
+              <a>Home Startup</a>
             </li>
             <li>
-              <p>Corporate Agency</p>
+              <a>Corporate Agency</a>
             </li>
           </ul>
         </li>
         <li className="menu-item-has-children">
-          <p>
+          <a>
             Services <FaAngleDown />
-          </p>
+          </a>
           <ul className="axil-submenu">
             <li>
-              <p>Service</p>
+              <a>Service</a>
             </li>
             <li>
-              <p>Service Two</p>
+              <a>Service Two</a>
             </li>
             <li>
-              <p>Service Details</p>
+              <a>Service Details</a>
             </li>
           </ul>
         </li>
         <li>
-          <p>Contact</p>
+          <a>Contact</a>
         </li>
       </ul>
     </nav>

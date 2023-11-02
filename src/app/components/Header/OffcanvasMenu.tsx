@@ -12,7 +12,7 @@ import {
 
 interface Props {
   offcanvasShow: boolean;
-  offcanvasHide: boolean;
+  offcanvasHide: () => void;
 }
 
 const OffcanvasMenu = ({ offcanvasShow, offcanvasHide }: Props) => {
@@ -59,7 +59,7 @@ const OffcanvasMenu = ({ offcanvasShow, offcanvasHide }: Props) => {
                   </p>
                 </address>
                 <address className="address">
-                  <span className="title">We're Available 24/7. Call Now.</span>
+                  <span className="title">We are Available 24/7. Call Now.</span>
                   <a href="tel:8884562790" className="tel">
                     <FaPhone /> (888) 456-2790
                   </a>

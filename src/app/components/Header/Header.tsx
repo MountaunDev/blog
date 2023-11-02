@@ -1,11 +1,13 @@
+'use client'
 import React, { useState } from "react";
 import Nav from "./Nav";
 import OffcanvasMenu from "./OffcanvasMenu";
 import StickyHeader from "./StickyHeader";
-import SwitcherHeader from "../../elements/switcher/SwitcherHeader";
+import SwitcherHeader from "./SwitcherHeader";
+import HeaderLogo from "./HeaderLogo";
 // import MobileMenu from './MobileMenu';
 
-const HeaderOne = () => {
+const Header = () => {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
 
   const OffcanvasHandleClose = () => setShowOffcanvas(false);
@@ -36,7 +38,7 @@ const HeaderOne = () => {
           <div className="container">
             <div className="header-navbar">
               <div className="header-logo">
-                <p>Here should be the logo</p>
+                <HeaderLogo />
               </div>
               <div className="header-main-nav">
                 <Nav />
@@ -51,7 +53,7 @@ const HeaderOne = () => {
                     </button>
                   </li>
                   <li className="mobile-menu-btn sidemenu-btn d-lg-none d-block">
-                    <button className="btn-wrap" onClick={MobileMenuHandler}>
+                    <button className="btn-wrap" onClick={() => console.log('MobileMenu')}>
                       <span></span>
                       <span></span>
                       <span></span>
@@ -75,4 +77,4 @@ const HeaderOne = () => {
   );
 };
 
-export default HeaderOne;
+export default Header;

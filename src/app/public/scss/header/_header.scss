@@ -291,6 +291,7 @@
     > a {
       position: relative;
       svg {
+        display: inline-block !important;
         margin-left: 2px;
         font-size: 14px;
       }
