@@ -11,7 +11,7 @@
     }
 }
 .breadcrumb {
-    display: block;
+    display: block !important;
     ul {
         margin-bottom: 40px;
         @media #{$sm-layout} {
@@ -33,9 +33,9 @@
             right: -15px;
         }
         a {
-            color: var(--color-gray-2);
+            color: var(--color-gray-2) !important;
             &:hover {
-                color: var(--color-primary);
+                color: var(--color-primary) !important;
             }
         }
         &:last-child {

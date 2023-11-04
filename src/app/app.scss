@@ -1,10 +1,10 @@
 /*=======================================================================
 1. Default Styles
 =========================================================================*/
-@import "public/scss/default/_variables";
+@import "public/scss/default/_variable";
 @import "public/scss/default/_reset";
 @import "public/scss/default/_typography";
-@import "public/scss/default/_forms";
+@import "public/scss/default/_form";
 @import "public/scss/default/_classes";
 
 /*=======================================================================
@@ -16,6 +16,7 @@
 @import "public/scss/elements/button";
 @import "public/scss/elements/pagination";
 @import "public/scss/elements/slick";
+@import "public/scss/elements/_section-heading.scss";
 
 /*=======================================================================
 3. Template Styles
@@ -43,7 +44,6 @@
 4.Blocks Styles 
 =========================================================================*/
 @import "public/scss/header/_header.scss";
-@import "public/scss/header/_section-heading.scss";
 @import "public/scss/blog/_blog.scss";
 @import "public/scss/blog/_widget.scss";
 
@@ -53,6 +53,8 @@
 5. Dark Style 
 =========================================================================*/
 // @import "dark-style/dark-version";
+@import "public/scss/dark-style/_dark-version.scss";
+
 
 /*=======================================================================
 6. Spacing 
@@ -62,4 +64,4 @@
 /*=======================================================================
 7. RTL 
 =========================================================================*/
-// @import "rtl/rtl";
+// @import "public/scss/rtl/rtl";
