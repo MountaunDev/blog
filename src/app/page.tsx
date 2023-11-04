@@ -1,13 +1,11 @@
 import "@/app/app.scss";
-import Header from "./components/Header/Header";
+import Header from "../common/components/Header/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Breadcrumb from "./components/Breadcumb/Breadcrumb";
+import Breadcrumb from "../common/components/Breadcumb/Breadcrumb";
+import BlogGridOne from "./blog/components/GridOne";
 
 export default function Home() {
   return (
-    <main className="main-wrapper">
-      <Header />
-      <Breadcrumb title="Blogsssss" page="Blog" />
-    </main>
+   <h1>Main Page</h1>
   );
 }
