@@ -2,7 +2,7 @@
 import React from 'react';
 import { FaFacebookF, FaTwitter, FaPinterestP, FaLinkedin, FaInstagram, FaVimeoV, FaDribbble, FaBehance } from "react-icons/fa";
 
-const BlogAuthor = ({data}) => {
+const PostAuthor = ({data}: any) => {
     return (
         <div className="blog-author">
             <div className="author">
@@ -28,4 +28,4 @@ const BlogAuthor = ({data}) => {
     )
 }
 
-export default BlogAuthor;
+export default PostAuthor;

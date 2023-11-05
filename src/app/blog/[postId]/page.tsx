@@ -16,7 +16,7 @@ import Slider from "react-slick";
 import Header from "@/common/components/Header/Header";
 import Breadcrumb from "@/common/components/Breadcumb/Breadcrumb";
 import BlogData from "@/data/BlogData.json";
-import BlogAuthor from "../components/PostAuthor";
+import PostAuthor from "./components/PostAuthor";
 
 const allBlogData = BlogData;
 
@@ -147,7 +147,7 @@ const BlogDetails = ({ params }: { params: { postId: string } }) => {
                     </div>
                   </div>
                 </div>
-                <BlogAuthor data={detailsBlog} />
+                <PostAuthor data={detailsBlog} />
                 {/* <Comment /> */}
               </div>
               {/* <div className="col-lg-4">
