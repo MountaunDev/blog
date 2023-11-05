@@ -1,29 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useState } from "react";
-// import { Link } from 'react-router-dom';
-import Image from "next/image";
+import Link from "next/link";
 import BlogData from "@/data/BlogData.json";
-// import { slugify } from '../../utils';
 import {
   FaPlay,
   FaAngleRight,
   FaAngleLeft,
-  FaArrowRight,
-  FaArrowLeft,
 } from "react-icons/fa";
-// import FsLightbox from 'fslightbox-react';
+import FsLightbox from 'fslightbox-react';
 import Slider from "react-slick";
-// import ReactPaginate from 'react-paginate';
-
-import author from "@/app/public/images/author-1.png";
 
 const allBlogData = BlogData;
 
 const BlogGridOne = () => {
   const [toggler, setToggler] = useState(false);
 
-  function SlickNextArrow(props) {
+  function SlickNextArrow(props: any) {
     const { className, onClick } = props;
     return (
       <div className={className} onClick={onClick}>
@@ -32,7 +25,7 @@ const BlogGridOne = () => {
     );
   }
 
-  function SlickPrevArrow(props) {
+  function SlickPrevArrow(props: any) {
     const { className, onClick } = props;
     return (
       <div className={className} onClick={onClick}>
@@ -54,30 +47,25 @@ const BlogGridOne = () => {
   const [blogs] = useState(allBlogData);
   const [pageNumber, setPageNumber] = useState(0);
 
-  const blogsPerPage = 4;
+  // FIXME: THIS WAS USED for the pagination but right now there ir no pagination.
+  const blogsPerPage = 20;
   const pageVisited = pageNumber * blogsPerPage;
 
-  // const pageCount = Math.ceil(blogs.length / blogsPerPage);
-
-  // const changePage = ({selected}) => {
-  //     setPageNumber(selected);
-  // }
-
-  console.log(process.env.PUBLIC_URL, 'logg');
+  // TODO: Replace direct path with the env variables if possible
+  // TODO: Add pagination.
+  console.log(process.env.PUBLIC_URL, "logg");
 
   return (
     <>
       {blogs.slice(pageVisited, pageVisited + blogsPerPage).map((data) => (
         <div className="blog-grid" key={data.id}>
           <h3 className="title">
-            <a>{data.title}</a>
+            <Link className="no-underline" href={`/blog/${data.id}`}>{data.title}</Link>
           </h3>
+
           <div className="author">
             <div className="author-thumb">
-              <img
-                src={`/blog/${data.author_avatar}`}
-                alt="Blog Author"
-              />
+              <img src={`/blog/${data.author_avatar}`} alt="Blog Author" />
             </div>
             <div className="info">
               <h6 className="author-name">
@@ -89,6 +77,7 @@ const BlogGridOne = () => {
               </ul>
             </div>
           </div>
+
           <div className="post-thumbnail">
             {Array.isArray(data.large_thumb) ? (
               <Slider {...slideSettings} className="slick-arrow-nav">
@@ -99,9 +88,9 @@ const BlogGridOne = () => {
                 ))}
               </Slider>
             ) : (
-              <a>
+              <Link href={`/blog/${data.id}`}>
                 <img src={`/blog/${data.large_thumb}`} alt="Blog" />
-              </a>
+              </Link>
             )}
 
             {data.format === "video" ? (
@@ -114,28 +103,16 @@ const BlogGridOne = () => {
                     <FaPlay />
                   </button>
                 </div>
-                {/* <FsLightbox toggler={ toggler } sources={ ['https://www.youtube.com/watch?v=1iIZeIy7TqM'] }/> */}
+                <FsLightbox toggler={ toggler } sources={ ['https://www.youtube.com/watch?v=1iIZeIy7TqM'] }/>
               </>
             ) : (
               ""
             )}
           </div>
           <p>{data.excerpt}</p>
-          <a className="axil-btn btn-borderd btn-large">Read More</a>
+          <Link href={`/blog/${data.id}`} className="axil-btn btn-borderd btn-large">Read More</Link>
         </div>
       ))}
-
-      {/* <ReactPaginate
-                previousLabel={<FaArrowLeft />}
-                nextLabel={<FaArrowRight />}
-                pageCount= {pageCount}
-                onPageChange={changePage}
-                containerClassName={"pagination justify-content-start"}
-                previousLinkClassName={"prev"}
-                nextLinkClassName={"next"}
-                disabledClassName={"disabled"}
-                activeClassName={"current"}
-            /> */}
     </>
   );
 };
