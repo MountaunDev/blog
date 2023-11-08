@@ -1,15 +1,5 @@
 import { fetchBlogEntries } from "@/contentful/index";
-import { IBlogPostFields } from "../../../@types/generated/contentful.d";
-import { ReactNode } from "react";
-
-type Modify<T, R> = Omit<T, keyof R> & R;
-
-type IModifiedBlogPostFields = Modify<
-  IBlogPostFields,
-  {
-    content: ReactNode;
-  }
->;
+import { IModifiedBlogPostFields } from "@/types/blog";
 
 export async function fetchBlogPosts(): Promise<IModifiedBlogPostFields[]> {
   try {
