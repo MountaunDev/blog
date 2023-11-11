@@ -1,8 +1,11 @@
 import Header from "@/common/components/Header/Header";
 import Breadcrumb from "@/common/components/Breadcumb/Breadcrumb";
-import BlogGridOne from "@/app/blog/components/GridOne";
+import PostList from "@/app/blog/components/PostList";
+import { fetchBlogPosts } from "../services/blogService";
 
-export default function Home() {
+export default async function Home() {
+  const data = await fetchBlogPosts();
+
   return (
     <main className="main-wrapper">
       <Header />
@@ -11,11 +14,9 @@ export default function Home() {
         <div className="container">
           <div className="row row-40">
             <div className="col-lg-8">
-              <BlogGridOne />
+              <PostList blogData={data}/>
             </div>
-            <div className="col-lg-4">
-              {/* <p>Blog grid one</p> */}
-            </div>
+            <div className="col-lg-4"></div>
           </div>
         </div>
       </div>

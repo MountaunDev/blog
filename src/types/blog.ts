@@ -6,7 +6,7 @@ type Modify<T, R> = Omit<T, keyof R> & R;
 export type IModifiedBlogPostFields = Modify<
   IBlogPostFields,
   {
-    id: string;
+    id?: string;
     content: ReactNode;
   }
 >;

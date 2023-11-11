@@ -1,6 +1,5 @@
 import { createClient } from "contentful";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { Document } from "@contentful/rich-text-types";
+import { formatEntryAndRichTextFields } from "./util";
 
 const client = createClient({
   space: "dcyvpoci5no4",
@@ -13,15 +12,30 @@ export async function fetchBlogEntries(): Promise<any> {
     const response = await client.getEntries({
       content_type: "blogPost",
     });
-    const test2 = response.items.map((item) => {
-      const formatedRichText = item.fields.content && {
-        ...item.fields,
-        content: documentToReactComponents(item.fields.content as Document),
-      };
-      return formatedRichText;
-    });
-    return test2;
+    const formatedResponse = formatEntryAndRichTextFields(response.items);
+    return formatedResponse;
   } catch (error) {
     throw error;
+  }
+}
+
+export async function fetchEntryById(entryId: string, contentType: string) {
+  try {
+    const options = {
+      content_type: contentType,
+      "sys.id": entryId,
+      limit: 1,
+    };
+
+    const response = await client.getEntries(options);
+    if (response.items.length > 0) {
+      const formatedResponse = formatEntryAndRichTextFields(response.items);
+      return formatedResponse;
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.error("Error fetching entry:", error);
+    return null;
   }
 }

@@ -21,6 +21,18 @@ export interface IBlogPostFields {
 
   /** dislikes */
   dislikes?: number | undefined;
+
+  /** shortDescription */
+  shortDescription: string;
+
+  /** imagesBanner */
+  imagesBanner?: string[] | undefined;
+
+  /** featureImages */
+  featureImages?: string[] | undefined;
+
+  /** minToRead */
+  minToRead?: number | undefined;
 }
 
 export interface IBlogPost extends Entry<IBlogPostFields> {
