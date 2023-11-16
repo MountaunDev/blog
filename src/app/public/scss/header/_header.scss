@@ -34,6 +34,10 @@
         border-radius: 30%; /* Para hacer el contenedor circular */
         background-color: #ffffff; /* Color similar al cielo azul */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efecto de elevación */
+
+        h3{
+          margin-bottom: 0px !important;
+        }
       }
     }
     .header-main-nav {
