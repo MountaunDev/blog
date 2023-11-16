@@ -61,7 +61,7 @@ const PostList = ({ blogData }: Props) => {
             </div>
             <div className="info">
               <h6 className="author-name">
-                {data.postAuthor && <a>{data.postAuthor?.fields.name}</a>}
+                {data.postAuthor && <a>{data.postAuthor.fields.name}</a>}
               </h6>
               <ul className="blog-meta list-unstyled">
                 <li>{data.publishDate}</li>

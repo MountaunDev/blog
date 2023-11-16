@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
-import { IBlogPostFields } from "../../@types/generated/contentful";
+import { IAuthor, IBlogPostFields } from "../../@types/generated/contentful";
+import { AuthorPost } from "./author";
 
 type Modify<T, R> = Omit<T, keyof R> & R;
 
@@ -8,5 +9,6 @@ export type IModifiedBlogPostFields = Modify<
   {
     id?: string;
     content: ReactNode;
+    postAuthor: AuthorPost;
   }
 >;

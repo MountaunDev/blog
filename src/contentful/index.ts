@@ -2,12 +2,11 @@ import { createClient } from "contentful";
 import { formatEntryAndRichTextFields } from "./util";
 
 const client = createClient({
-  space: process.env.contenful_space,
-  accessToken: process.env.contentful_accessToken,
-  environment: process.env.contentful_environment,
+  space: "dcyvpoci5no4",
+  accessToken: "slzfbfWr8KXSW597CfdS8BmRMY5Z5wRSqY2KHEpXf2s",
+  environment: "master"
 });
 
-console.log('env ->', process.env.contenful_space);
 export async function fetchBlogEntries(): Promise<any> {
   try {
     const response = await client.getEntries({
