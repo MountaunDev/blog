@@ -86,7 +86,7 @@ const BlogDetails = ({ params }: { params: { postId: string } }) => {
                         <img src={`/blog/author-1.png`} alt="Blog Author" />
                       </div>
                       <div className="info">
-                        <h6 className="author-name">Author or authors name</h6>
+                        <h6 className="author-name">{postData.postAuthor?.fields.name}</h6>
                         <ul className="blog-meta list-unstyled">
                           <li>{postData.publishDate}</li>
                           <li>{`${postData.minToRead || 10} min to read`}</li>
