@@ -9,7 +9,7 @@ export default function BlogLayout({
 }) {
   return (
     <section id="blog">
-      <SEO title="Personal Blog" />
+      <SEO />
       <ThemePicker />
       {children}
     </section>
