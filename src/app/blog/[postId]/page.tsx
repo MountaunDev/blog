@@ -1,68 +1,64 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-// import FooterOne from '../common/footer/FooterOne';
-// import CtaLayoutOne from "../component/cta/CtaLayoutOne";
-// import BlogSidebar from "../component/blog/BlogSidebar";
-// import BlogAuthor from "../component/blog/BlogAuthor";
-// import Comment from "../component/blog/Comment";
-// import ColorSwitcher from "../elements/switcher/ColorSwitcher";
-// import SEO from "../common/SEO";
-// import BlogListOne from "../component/blog/BlogListOne";
-import FsLightbox from "fslightbox-react";
-import { FaPlay, FaAngleRight, FaAngleLeft } from "react-icons/fa";
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import Slider from "react-slick";
 import Header from "@/common/components/Header/Header";
 import Breadcrumb from "@/common/components/Breadcumb/Breadcrumb";
-import BlogData from "@/data/BlogData.json";
-import PostAuthor from "./components/PostAuthor";
+import { getEntryById } from "@/app/services/blogService";
+import { IModifiedBlogPostFields } from "@/types/blog";
+import ImageComponent from "@/common/components/Image";
 
-const allBlogData = BlogData;
+function SlickNextArrow(props: any) {
+  const { className, onClick } = props;
+  return (
+    <div className={className} onClick={onClick}>
+      <FaAngleRight />
+    </div>
+  );
+}
+
+function SlickPrevArrow(props) {
+  const { className, onClick } = props;
+  return (
+    <div className={className} onClick={onClick}>
+      <FaAngleLeft />
+    </div>
+  );
+}
+
+var slideSettings = {
+  dots: false,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  nextArrow: <SlickNextArrow />,
+  prevArrow: <SlickPrevArrow />,
+};
 
 const BlogDetails = ({ params }: { params: { postId: string } }) => {
-  const blogId = parseInt(params.postId);
+  console.log("🚀 ~ file: page.tsx:41 ~ BlogDetails ~ params:", params);
+  const [postData, setPostData] = useState<IModifiedBlogPostFields>();
 
-  const getBlogData = allBlogData.filter((blog) => blog.id === blogId);
-  const detailsBlog = getBlogData[0];
+  useEffect(() => {
+    (async () => {
+      const data = await getEntryById();
+      setPostData(data[0]);
+    })();
+  }, []);
 
-  const [toggler, setToggler] = useState(false);
-
-  function SlickNextArrow(props) {
-    const { className, onClick } = props;
-    return (
-      <div className={className} onClick={onClick}>
-        <FaAngleRight />
-      </div>
-    );
+  if (!postData) {
+    // TODO: Add a nice loader here
+    return "Loading";
   }
-
-  function SlickPrevArrow(props) {
-    const { className, onClick } = props;
-    return (
-      <div className={className} onClick={onClick}>
-        <FaAngleLeft />
-      </div>
-    );
-  }
-
-  var slideSettings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    nextArrow: <SlickNextArrow />,
-    prevArrow: <SlickPrevArrow />,
-  };
 
   return (
     <>
-      {/* <SEO title={detailsBlog.title} /> */}
-      {/* <ColorSwitcher /> */}
       <main className="main-wrapper">
         <Header />
-        <Breadcrumb title={detailsBlog.title} page="Blog" />
+        <Breadcrumb title={postData.title} page="Blog" />
         <div className="section-padding-equal">
           <div className="container">
             <div className="row row-40">
@@ -70,107 +66,52 @@ const BlogDetails = ({ params }: { params: { postId: string } }) => {
                 <div className="single-blog">
                   <div className="single-blog-content blog-grid">
                     <div className="post-thumbnail">
-                      {Array.isArray(detailsBlog.large_thumb) ? (
+                      {Array.isArray(postData.imagesBanner) ? (
                         <Slider {...slideSettings} className="slick-arrow-nav">
-                          {detailsBlog.large_thumb.map((data, index) => (
+                          {postData.imagesBanner.map((url, index) => (
                             <div className="slide-item" key={index}>
-                              <img
-                                src={`/blog/${data}`}
-                                alt="Blog"
-                              />
+                              <ImageComponent src={url}/>
                             </div>
                           ))}
                         </Slider>
                       ) : (
-                        <img
-                          src={`/blog/${detailsBlog.large_thumb}`}
-                          alt="Blog"
-                        />
-                      )}
-
-                      {detailsBlog.format === "video" ? (
-                        <>
-                          <div className="popup-video">
-                            <button
-                              className="play-btn"
-                              onClick={() => setToggler(!toggler)}
-                            >
-                              <FaPlay />
-                            </button>
-                          </div>
-                          <FsLightbox
-                            toggler={toggler}
-                            sources={[
-                              "https://www.youtube.com/watch?v=1iIZeIy7TqM",
-                            ]}
-                          />
-                        </>
-                      ) : (
-                        ""
+                        postData.imagesBanner && (
+                          <ImageComponent src={postData.imagesBanner[0]}/>
+                        )
                       )}
                     </div>
                     <div className="author">
                       <div className="author-thumb">
-                        <img
-                          src={`/blog/${detailsBlog.author_avatar}`}
-                          alt="Blog Author"
-                        />
+                        <img src={`/blog/author-1.png`} alt="Blog Author" />
                       </div>
                       <div className="info">
-                        <h6 className="author-name">
-                          {detailsBlog.author_name}
-                        </h6>
+                        <h6 className="author-name">Author or authors name</h6>
                         <ul className="blog-meta list-unstyled">
-                          <li>{detailsBlog.post_date}</li>
-                          <li>{detailsBlog.read_time}</li>
+                          <li>{postData.publishDate}</li>
+                          <li>{`${postData.minToRead || 10} min to read`}</li>
                         </ul>
                       </div>
                     </div>
-                    {detailsBlog.body.map((data, i) => (
-                      <div
-                        key={i}
-                        dangerouslySetInnerHTML={{ __html: data }}
-                      ></div>
-                    ))}
-
-                    <div className="row">
-                      {detailsBlog.features_img.map((img, i) => (
-                        <div className="col-6" key={i}>
-                          <div className="featured-img">
-                            <img
-                              src={"/blog" + img}
-                              alt="Blog"
-                            />
+                    {postData.content && postData.content}
+                    {postData.featureImages && (
+                      <div className="row">
+                        {postData.featureImages.map((img, i) => (
+                          <div className="col-6" key={i}>
+                            <div className="featured-img">
+                              <img src={img} alt="Blog" />
+                            </div>
                           </div>
-                        </div>
-                      ))}
-                    </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
-                <PostAuthor data={detailsBlog} />
-                {/* <Comment /> */}
+                {/* TODO: Complete the information about the author the component is already creaated */}
+                {/* <PostAuthor data={detailsBlog} /> */}
               </div>
-              {/* <div className="col-lg-4">
-                <BlogSidebar />
-                <p>BlogSidebar</p>
-              </div> */}
             </div>
           </div>
         </div>
-
-        {/* <div className="section section-padding-equal pt-0 related-blog-area">
-          <div className="container">
-            <div className="section-heading heading-left">
-              <h3 className="title">Related Post</h3>
-            </div>
-            <div className="row g-0">
-              <BlogListOne colSize="col-xl-6" itemShow="2" />
-              <p>BlogListOne component</p>
-            </div>
-          </div>
-        </div> */}
-        {/* <CtaLayoutOne /> */}
-        {/* <FooterOne parentClass="" /> */}
       </main>
     </>
   );

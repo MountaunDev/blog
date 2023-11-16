@@ -297,6 +297,12 @@
         }
         .featured-img {
             margin-top: 20px;
+
+            img {
+                max-height: 280px;
+                width: 100%;
+                object-fit: fill;
+            }
         }
     }
     .audio-player {
@@ -530,6 +536,18 @@
 
 /// New Blog Style
 .blog-grid {
+    .custom-img {
+        width: 100% !important;
+        border-radius: 20px !important;
+        height: 450px !important;
+        object-fit: cover !important;
+    }
+    .custom-img2 {
+        width: 100% !important;
+        border-radius: 20px !important;
+        height: 450px !important;
+        object-fit: contain !important;
+    }
     &.blog-grid-2 {
         .post-thumbnail {
             margin-top: 0;
