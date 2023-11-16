@@ -7,19 +7,21 @@ export default async function Home() {
   const data = await fetchBlogPosts();
 
   return (
-    <main className="main-wrapper">
-      <Header />
-      <Breadcrumb title="Blogsssss" page="Blog" />
-      <div className="section-padding-equal">
-        <div className="container">
-          <div className="row row-40">
-            <div className="col-lg-8">
-              <PostList blogData={data}/>
+    <>
+      <main className="main-wrapper">
+        <Header />
+        <Breadcrumb title="Blog" page="Blog" />
+        <div className="section-padding-equal">
+          <div className="container">
+            <div className="row row-40">
+              <div className="col-lg-8">
+                <PostList blogData={data} />
+              </div>
+              <div className="col-lg-4"></div>
             </div>
-            <div className="col-lg-4"></div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
