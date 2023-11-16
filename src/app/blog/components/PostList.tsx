@@ -61,7 +61,6 @@ const PostList = ({ blogData }: Props) => {
             </div>
             <div className="info">
               <h6 className="author-name">
-                {/* TODO: Add this field into the content Type to render dynamically */}
                 {data.postAuthor && <a>{data.postAuthor?.fields.name}</a>}
               </h6>
               <ul className="blog-meta list-unstyled">
