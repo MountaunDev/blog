@@ -3,7 +3,7 @@ import Breadcrumb from "@/common/components/Breadcumb/Breadcrumb";
 import PostList from "@/app/blog/components/PostList";
 import { fetchBlogPosts } from "../services/blogService";
 
-export default async function Home() {
+export default async function BlogHome() {
   const data = await fetchBlogPosts();
 
   return (

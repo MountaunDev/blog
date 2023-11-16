@@ -1,8 +1,11 @@
 import React from 'react'
 import PropTypes from "prop-types";
 
+interface Props {
+    title: string;
+}
 
-const SEO = ( {title}: {title: string} ) => {
+const SEO = ( {title}: Props ) => {
     return (
         <>
             <meta charSet="utf-8" />
