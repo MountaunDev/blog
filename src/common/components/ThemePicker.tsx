@@ -4,7 +4,10 @@ import { FaLightbulb, FaMoon } from "react-icons/fa";
 
 const ThemePicker = () => {
   const switchColor = () => {
-      document.querySelector("body").classList.toggle("active-dark-mode");
+    const body = document.querySelector("body");
+    if (body) {
+      body.classList.toggle("active-dark-mode");
+    }
   };
 
   return (
