@@ -17,7 +17,7 @@ const Breadcrumb = ({ title, page }: Props) => {
         <div className="breadcrumb">
           <ul className="list-unstyled">
             <li>
-              <a>Home</a>
+              <a>Homeeee</a>
             </li>
             <li
               className="active"
