@@ -19,7 +19,7 @@ function SlickNextArrow(props: any) {
   );
 }
 
-function SlickPrevArrow(props) {
+function SlickPrevArrow(props: any) {
   const { className, onClick } = props;
   return (
     <div className={className} onClick={onClick}>
@@ -39,15 +39,15 @@ var slideSettings = {
 };
 
 const BlogDetails = ({ params }: { params: { postId: string } }) => {
-  console.log("🚀 ~ file: page.tsx:41 ~ BlogDetails ~ params:", params);
+  const {postId} = params;
   const [postData, setPostData] = useState<IModifiedBlogPostFields>();
 
   useEffect(() => {
     (async () => {
-      const data = await getEntryById();
+      const data = await getEntryById(postId);
       setPostData(data[0]);
     })();
-  }, []);
+  }, [postId]);
 
   if (!postData) {
     // TODO: Add a nice loader here

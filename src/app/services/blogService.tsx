@@ -9,10 +9,9 @@ export async function fetchBlogPosts(): Promise<IModifiedBlogPostFields[]> {
   }
 }
 
-export async function getEntryById(): Promise<any> {
+export async function getEntryById(postId: string): Promise<any> {
   try {
-    // return await fetchEntryById("6QprdkjcKIQHH2LfepqmTb", "blogPost");
-    return await fetchEntryById("H8MFfGgEhe5mxn6cFaJR6", "blogPost");
+    return await fetchEntryById(postId, "blogPost");
   } catch (error) {
     throw error;
   }
