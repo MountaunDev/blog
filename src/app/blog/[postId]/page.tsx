@@ -9,6 +9,7 @@ import Breadcrumb from "@/common/components/Breadcumb/Breadcrumb";
 import { getEntryById } from "@/app/services/blogService";
 import { IModifiedBlogPostFields } from "@/types/blog";
 import ImageComponent from "@/common/components/Image";
+import PostAuthor from "./components/PostAuthor";
 
 function SlickNextArrow(props: any) {
   const { className, onClick } = props;
@@ -39,7 +40,7 @@ var slideSettings = {
 };
 
 const BlogDetails = ({ params }: { params: { postId: string } }) => {
-  const {postId} = params;
+  const { postId } = params;
   const [postData, setPostData] = useState<IModifiedBlogPostFields>();
 
   useEffect(() => {
@@ -70,13 +71,13 @@ const BlogDetails = ({ params }: { params: { postId: string } }) => {
                         <Slider {...slideSettings} className="slick-arrow-nav">
                           {postData.imagesBanner.map((url, index) => (
                             <div className="slide-item" key={index}>
-                              <ImageComponent src={url}/>
+                              <ImageComponent src={url} />
                             </div>
                           ))}
                         </Slider>
                       ) : (
                         postData.imagesBanner && (
-                          <ImageComponent src={postData.imagesBanner[0]}/>
+                          <ImageComponent src={postData.imagesBanner[0]} />
                         )
                       )}
                     </div>
@@ -106,8 +107,9 @@ const BlogDetails = ({ params }: { params: { postId: string } }) => {
                     )}
                   </div>
                 </div>
-                {/* TODO: Complete the information about the author the component is already creaated */}
-                {/* <PostAuthor data={detailsBlog} /> */}
+                {postData.postAuthor && (
+                  <PostAuthor data={postData.postAuthor.fields} />
+                )}
               </div>
             </div>
           </div>

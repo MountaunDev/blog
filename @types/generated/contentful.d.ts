@@ -3,6 +3,39 @@
 import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
+export interface IAuthorFields {
+  /** name */
+  name: string;
+
+  /** shortBiography */
+  shortBiography?: string | undefined;
+
+  /** email */
+  email: string;
+
+  /** profileImage */
+  profileImage?: string | undefined;
+}
+
+/** This is the information about the author */
+
+export interface IAuthor extends Entry<IAuthorFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "author";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IBlogPostFields {
   /** title */
   title: string;
@@ -33,6 +66,9 @@ export interface IBlogPostFields {
 
   /** minToRead */
   minToRead?: number | undefined;
+
+  /** postAuthor */
+  postAuthor?: Entry<{ [fieldId: string]: unknown }> | undefined;
 }
 
 export interface IBlogPost extends Entry<IBlogPostFields> {
@@ -52,9 +88,9 @@ export interface IBlogPost extends Entry<IBlogPostFields> {
   };
 }
 
-export type CONTENT_TYPE = "blogPost";
+export type CONTENT_TYPE = "author" | "blogPost";
 
-export type IEntry = IBlogPost;
+export type IEntry = IAuthor | IBlogPost;
 
 export type LOCALE_CODE = "en-US";
 

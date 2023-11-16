@@ -6,6 +6,7 @@ import { FaPlay, FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import FsLightbox from "fslightbox-react";
 import Slider from "react-slick";
 import { IModifiedBlogPostFields } from "@/types/blog";
+import ImageComponent from "@/common/components/Image";
 
 function SlickNextArrow(props: any) {
   const { className, onClick } = props;
@@ -40,10 +41,6 @@ interface Props {
 }
 
 const PostList = ({ blogData }: Props) => {
-  console.log("🚀 ~ file: GridOne.tsx:44 ~ BlogGridOne ~ blogData:", blogData);
-  // TODO: Add pagination.
-  console.log(process.env.PUBLIC_URL, "logg");
-
   return (
     <>
       {blogData.map((data) => (
@@ -65,53 +62,32 @@ const PostList = ({ blogData }: Props) => {
             <div className="info">
               <h6 className="author-name">
                 {/* TODO: Add this field into the content Type to render dynamically */}
-                <a>Juan Felipe Montaña</a>
+                {data.postAuthor && <a>{data.postAuthor?.fields.name}</a>}
               </h6>
               <ul className="blog-meta list-unstyled">
                 <li>{data.publishDate}</li>
-                {/* TODO: Add the time_to_read field to the content type */}
-                <li>9 min to read</li>
+                <li>{`${data.minToRead || "2"} min to read`}</li>
               </ul>
             </div>
           </div>
 
-          {/* <div className="post-thumbnail">
-            {Array.isArray(data.large_thumb) ? (
+          <div className="post-thumbnail">
+            {Array.isArray(data.imagesBanner) ? (
               <Slider {...slideSettings} className="slick-arrow-nav">
-                {data.large_thumb.map((data, index) => (
+                {data.imagesBanner.map((url, index) => (
                   <div className="slide-item" key={index}>
-                    <img src={`/blog/${data}`} alt="Blog" />
+                    <ImageComponent src={url} />
                   </div>
                 ))}
               </Slider>
             ) : (
-              <Link href={`/blog/${data.id}`}>
-                <img
-                  src={`https://images.ctfassets.net/dcyvpoci5no4/10pCIDvgZ5GbkkRdsPBhCE/077b8382b1c494efe2a442022e47ddab/large_thumb_1.png`}
-                  alt="Blog"
-                />
-              </Link>
+              data.imagesBanner && (
+                <Link className="no-underline" href={`/blog/${data.id}`}>
+                  <ImageComponent src={data.imagesBanner[0]} />
+                </Link>
+              )
             )}
-
-            {data.format === "video" ? (
-              <>
-                <div className="popup-video">
-                  <button
-                    className="play-btn"
-                    onClick={() => setToggler(!toggler)}
-                  >
-                    <FaPlay />
-                  </button>
-                </div>
-                <FsLightbox
-                  toggler={toggler}
-                  sources={["https://www.youtube.com/watch?v=1iIZeIy7TqM"]}
-                />
-              </>
-            ) : (
-              ""
-            )}
-          </div> */}
+          </div>
           <p>{data.shortDescription}</p>
           <Link
             href={`/blog/${data.id}`}
