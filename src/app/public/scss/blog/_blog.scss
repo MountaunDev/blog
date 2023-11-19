@@ -139,6 +139,9 @@
         img {
             border-radius: 30px;
         }
+        .slide-item {
+            text-align: center;
+        }
         .popup-video {
             text-align: center;
             position: absolute;
@@ -537,13 +540,11 @@
 /// New Blog Style
 .blog-grid {
     .custom-img {
-        width: 100% !important;
         border-radius: 20px !important;
         height: 450px !important;
         object-fit: cover !important;
     }
     .custom-img2 {
-        width: 100% !important;
         border-radius: 20px !important;
         height: 450px !important;
         object-fit: contain !important;
