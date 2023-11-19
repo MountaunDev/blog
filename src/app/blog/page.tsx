@@ -5,6 +5,7 @@ import { fetchBlogPosts } from "../services/blogService";
 
 export default async function BlogHome() {
   const data = await fetchBlogPosts();
+  console.log("🚀 ~ file: page.tsx:8 ~ BlogHome ~ data:", data);
 
   return (
     <>
