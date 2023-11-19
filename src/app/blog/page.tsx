@@ -21,7 +21,6 @@ export default function BlogHome() {
     <>
       <main className="main-wrapper">
         <Header />
-        <h3 className="title">{JSON.stringify(data, null, 4)}</h3>
         <Breadcrumb title="Blog" page="Blog" />
         <div className="section-padding-equal">
           <div className="container">
