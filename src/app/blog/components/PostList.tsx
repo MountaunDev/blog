@@ -2,11 +2,9 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { FaPlay, FaAngleRight, FaAngleLeft } from "react-icons/fa";
-import FsLightbox from "fslightbox-react";
-import Slider from "react-slick";
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { IModifiedBlogPostFields } from "@/types/blog";
-import ImageComponent from "@/common/components/Image";
+import PostThumbnail from "./PostThumbnail";
 
 function SlickNextArrow(props: any) {
   const { className, onClick } = props;
@@ -69,24 +67,7 @@ const PostList = ({ blogData }: Props) => {
               </ul>
             </div>
           </div>
-
-          <div className="post-thumbnail">
-            {Array.isArray(data.imagesBanner) ? (
-              <Slider {...slideSettings} className="slick-arrow-nav">
-                {data.imagesBanner.map((url, index) => (
-                  <div className="slide-item" key={index}>
-                    <ImageComponent src={url} />
-                  </div>
-                ))}
-              </Slider>
-            ) : (
-              data.imagesBanner && (
-                <Link className="no-underline" href={`/blog/${data.id}`}>
-                  <ImageComponent src={data.imagesBanner[0]} />
-                </Link>
-              )
-            )}
-          </div>
+          <PostThumbnail imagesBanner={data.imagesBanner}/>
           <p>{data.shortDescription}</p>
           <Link
             href={`/blog/${data.id}`}
