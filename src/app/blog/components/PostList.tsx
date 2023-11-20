@@ -1,44 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { IModifiedBlogPostFields } from "@/types/blog";
 import PostThumbnail from "./PostThumbnail";
-
-function SlickNextArrow(props: any) {
-  const { className, onClick } = props;
-  return (
-    <div className={className} onClick={onClick}>
-      <FaAngleRight />
-    </div>
-  );
-}
-
-function SlickPrevArrow(props: any) {
-  const { className, onClick } = props;
-  return (
-    <div className={className} onClick={onClick}>
-      <FaAngleLeft />
-    </div>
-  );
-}
-
-const slideSettings = {
-  dots: false,
-  infinite: false,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  nextArrow: <SlickNextArrow />,
-  prevArrow: <SlickPrevArrow />,
-};
-
 interface Props {
   blogData: IModifiedBlogPostFields[];
 }
 
 const PostList = ({ blogData }: Props) => {
+
   return (
     <>
       {blogData.map((data) => (
