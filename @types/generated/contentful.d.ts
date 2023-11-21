@@ -15,6 +15,9 @@ export interface IAuthorFields {
 
   /** profileImage */
   profileImage?: string | undefined;
+
+  /** sex */
+  sex?: "F" | "M" | undefined;
 }
 
 /** This is the information about the author */
@@ -70,6 +73,8 @@ export interface IBlogPostFields {
   /** postAuthor */
   postAuthor?: Entry<{ [fieldId: string]: unknown }> | undefined;
 }
+
+/** Each record here is a post in our blog */
 
 export interface IBlogPost extends Entry<IBlogPostFields> {
   sys: {

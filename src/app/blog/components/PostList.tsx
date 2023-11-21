@@ -10,7 +10,6 @@ interface Props {
 }
 
 const PostList = ({ blogData }: Props) => {
-
   return (
     <>
       {blogData.map((data) => (
@@ -25,7 +24,7 @@ const PostList = ({ blogData }: Props) => {
             <div className="author-thumb">
               {/* TODO: This should not be always a default image */}
               <img
-                src="https://images.ctfassets.net/dcyvpoci5no4/6jUMZOjesYvPThsZaMIIXo/1f4ff83eec6678e221e6b70e66ce0e89/author-1.png"
+                src={`/blog/${data.postAuthor && data.postAuthor.fields.sex === 'M' ? 'author_male' : 'author_female'}.jpg`}
                 alt="Blog Author"
               />
             </div>

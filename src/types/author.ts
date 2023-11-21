@@ -8,6 +8,7 @@ export interface Fields {
   name:           string;
   shortBiography: string;
   email:          string;
+  sex:            string;
 }
 
 export interface Metadata {
