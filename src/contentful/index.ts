@@ -1,4 +1,4 @@
-import { createClient } from "contentful";
+import { EntrySys, OrderFilterPaths, createClient } from "contentful";
 import { formatEntryAndRichTextFields } from "./util";
 
 const client = createClient({
@@ -11,6 +11,7 @@ export async function fetchBlogEntries(): Promise<any> {
   try {
     const response = await client.getEntries({
       content_type: "blogPost",
+      order: "-fields.publishDate" as any,
     });
     const formatedResponse = formatEntryAndRichTextFields(response.items);
     return formatedResponse;
