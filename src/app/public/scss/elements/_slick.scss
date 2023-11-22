@@ -102,15 +102,15 @@
             background-color: rgba(0,0,0,1);
         }
         &.slick-next {
-            right: 20px;
+            right: 10px;
             @media #{$sm-layout} {
-                right: 20px;
+                right: 10px;
             }
         }
         &.slick-prev {
-            left: 20px;
+            left: 10px;
             @media #{$sm-layout} {
-                left: 20px;
+                left: 10px;
             }
         }
         &.slick-disabled {

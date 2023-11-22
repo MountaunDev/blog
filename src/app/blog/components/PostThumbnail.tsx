@@ -42,12 +42,24 @@ function PostThumbnail({ imagesBanner }: Props) {
         <Slider {...slideSettings} className="slick-arrow-nav">
           {imagesBanner.map((url, index) => (
             <div className="slide-item" key={index}>
-              <ImageComponent src={url} />
+              <ImageComponent
+                src={url}
+                alt="postImages"
+                width={630}
+                height={450}
+              />
             </div>
           ))}
         </Slider>
       ) : (
-        imagesBanner && <ImageComponent src={imagesBanner[0]} />
+        imagesBanner && (
+          <ImageComponent
+            src={imagesBanner[0]}
+            alt="postImages"
+            width={850}
+            height={450}
+          />
+        )
       )}
     </div>
   );

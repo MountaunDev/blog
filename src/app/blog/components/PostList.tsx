@@ -1,9 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Link from "next/link";
-import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { IModifiedBlogPostFields } from "@/types/blog";
 import PostThumbnail from "./PostThumbnail";
+import Image from "next/image";
 interface Props {
   blogData: IModifiedBlogPostFields[];
 }
@@ -21,11 +20,18 @@ const PostList = ({ blogData }: Props) => {
 
           <div className="author">
             <div className="author-thumb">
-              <img
-                src={`/blog/${data.postAuthor && data.postAuthor.fields.sex === 'M' ? 'author_male' : 'author_female'}.jpg`}
+              <Image
+                src={`/blog/${
+                  data.postAuthor && data.postAuthor.fields.sex === "M"
+                    ? "author_male"
+                    : "author_female"
+                }.jpg`}
                 alt="Blog Author"
+                width={80}
+                height={80}
               />
             </div>
+
             <div className="info">
               <h6 className="author-name">
                 {data.postAuthor && <a>{data.postAuthor.fields.name}</a>}
@@ -35,8 +41,9 @@ const PostList = ({ blogData }: Props) => {
                 <li>{`${data.minToRead || "2"} min to read`}</li>
               </ul>
             </div>
+            
           </div>
-          <PostThumbnail imagesBanner={data.imagesBanner}/>
+          <PostThumbnail imagesBanner={data.imagesBanner} />
           <p>{data.shortDescription}</p>
           <Link
             href={`/blog/${data.id}`}
