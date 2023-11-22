@@ -4,18 +4,33 @@ import Breadcrumb from "@/common/components/Breadcumb/Breadcrumb";
 import PostList from "@/app/blog/components/PostList";
 import { fetchBlogPosts } from "../services/blogService";
 import { useEffect, useState } from "react";
-import { IModifiedBlogPostFields } from "@/types/blog";
+import { IFetchBlogPostsResponse } from "@/types/blog";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import ReactPaginate from "react-paginate";
+
+const PAGE_SIZE = 2;
+
 
 export default function BlogHome() {
-  const [data, setData] = useState<IModifiedBlogPostFields[]>();
+  const [data, setData] = useState<IFetchBlogPostsResponse>();
+
+  // Inside the component
+  const [pageNumber, setPageNumber] = useState(0);
+
+  const fetchMoreEntries = async ({ selected }: { selected: number }) => {
+    setPageNumber(selected);
+  };
 
   useEffect(() => {
     (async function () {
-      const data = await fetchBlogPosts();
+      const data = await fetchBlogPosts(pageNumber, PAGE_SIZE);
       setData(data);
     })();
-  }),
-    [];
+  }, [pageNumber]);
+
+  if(!data){
+    return <p>loading</p>
+  }
 
   return (
     <>
@@ -26,7 +41,18 @@ export default function BlogHome() {
           <div className="container">
             <div className="row row-40">
               <div className="col-lg-8">
-                {data && <PostList blogData={data} />}
+                {data && <PostList blogData={data.items} />}
+                <ReactPaginate
+                  previousLabel={<FaArrowLeft />}
+                  nextLabel={<FaArrowRight />}
+                  pageCount={Math.ceil(data.total / PAGE_SIZE)}
+                  onPageChange={fetchMoreEntries}
+                  containerClassName={"pagination justify-content-start"}
+                  previousLinkClassName={"prev"}
+                  nextLinkClassName={"next"}
+                  disabledClassName={"disabled"}
+                  activeClassName={"current"}
+                />
               </div>
               <div className="col-lg-4"></div>
             </div>

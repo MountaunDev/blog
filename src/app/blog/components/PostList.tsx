@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-"use client";
-import React, { useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { IModifiedBlogPostFields } from "@/types/blog";
@@ -22,7 +21,6 @@ const PostList = ({ blogData }: Props) => {
 
           <div className="author">
             <div className="author-thumb">
-              {/* TODO: This should not be always a default image */}
               <img
                 src={`/blog/${data.postAuthor && data.postAuthor.fields.sex === 'M' ? 'author_male' : 'author_female'}.jpg`}
                 alt="Blog Author"

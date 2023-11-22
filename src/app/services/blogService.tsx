@@ -1,9 +1,9 @@
 import { fetchBlogEntries, fetchEntryById } from "@/contentful/index";
-import { IModifiedBlogPostFields } from "@/types/blog";
+import { IFetchBlogPostsResponse, IModifiedBlogPostFields } from "@/types/blog";
 
-export async function fetchBlogPosts(): Promise<IModifiedBlogPostFields[]> {
-  try {
-    return await fetchBlogEntries();
+export async function fetchBlogPosts(pageNumber: number, pageSize: number): Promise<IFetchBlogPostsResponse> {
+  try { 
+    return await fetchBlogEntries(pageNumber, pageSize);
   } catch (error) {
     throw error;
   }
