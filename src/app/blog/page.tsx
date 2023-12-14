@@ -40,7 +40,11 @@ export default function BlogHome() {
           <div className="container">
             <div className="row row-40">
               <div className="col-lg-8">
-                {data && <PostList blogData={data.items} />}
+                {!data ? (
+                  <PostListItemSkeleton />
+                ) : (
+                  <PostList blogData={data.items} />
+                )}
                 <ReactPaginate
                   previousLabel={<FaArrowLeft />}
                   nextLabel={<FaArrowRight />}
@@ -52,25 +56,6 @@ export default function BlogHome() {
                   disabledClassName={"disabled"}
                   activeClassName={"current"}
                 />
-                {!data ? (
-                  <PostListItemSkeleton />
-                ) : (
-                  <PostList blogData={data.items} />
-                )}
-                {/*TODO: After changing the page, should scroll to top */}
-                {data && (
-                  <ReactPaginate
-                    previousLabel={<FaArrowLeft />}
-                    nextLabel={<FaArrowRight />}
-                    pageCount={4}
-                    onPageChange={fetchMoreEntries}
-                    containerClassName={"pagination justify-content-start"}
-                    previousLinkClassName={"prev"}
-                    nextLinkClassName={"next"}
-                    disabledClassName={"disabled"}
-                    activeClassName={"current"}
-                  />
-                )}
               </div>
               <div className="col-lg-4"></div>
             </div>
