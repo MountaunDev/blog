@@ -16,7 +16,7 @@
     "contentful": "^10.6.5",
     "contentful-management": "^11.4.0",
     "fslightbox-react": "^1.7.6",
-    "next": "14.0.0",
+    "next": "14.0.3",
     "react": "^18",
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18",
