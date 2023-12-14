@@ -10,7 +10,6 @@ import ReactPaginate from "react-paginate";
 
 const PAGE_SIZE = 2;
 
-
 export default function BlogHome() {
   const [data, setData] = useState<IFetchBlogPostsResponse>();
 
@@ -28,8 +27,8 @@ export default function BlogHome() {
     })();
   }, [pageNumber]);
 
-  if(!data){
-    return <p>loading</p>
+  if (!data) {
+    return <p>loading</p>;
   }
 
   return (
@@ -45,7 +44,7 @@ export default function BlogHome() {
                 <ReactPaginate
                   previousLabel={<FaArrowLeft />}
                   nextLabel={<FaArrowRight />}
-                  pageCount={Math.ceil(data.total / PAGE_SIZE)}
+                  pageCount={4}
                   onPageChange={fetchMoreEntries}
                   containerClassName={"pagination justify-content-start"}
                   previousLinkClassName={"prev"}
