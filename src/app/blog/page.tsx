@@ -7,14 +7,13 @@ import { useEffect, useState } from "react";
 import { IFetchBlogPostsResponse } from "@/types/blog";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import ReactPaginate from "react-paginate";
+import PostListItemSkeleton from "./components/PostListItemSkeleton";
 
 const PAGE_SIZE = 2;
-
 
 export default function BlogHome() {
   const [data, setData] = useState<IFetchBlogPostsResponse>();
 
-  // Inside the component
   const [pageNumber, setPageNumber] = useState(0);
 
   const fetchMoreEntries = async ({ selected }: { selected: number }) => {
@@ -28,10 +27,6 @@ export default function BlogHome() {
     })();
   }, [pageNumber]);
 
-  if(!data){
-    return <p>loading</p>
-  }
-
   return (
     <>
       <main className="main-wrapper">
@@ -41,18 +36,25 @@ export default function BlogHome() {
           <div className="container">
             <div className="row row-40">
               <div className="col-lg-8">
-                {data && <PostList blogData={data.items} />}
-                <ReactPaginate
-                  previousLabel={<FaArrowLeft />}
-                  nextLabel={<FaArrowRight />}
-                  pageCount={Math.ceil(data.total / PAGE_SIZE)}
-                  onPageChange={fetchMoreEntries}
-                  containerClassName={"pagination justify-content-start"}
-                  previousLinkClassName={"prev"}
-                  nextLinkClassName={"next"}
-                  disabledClassName={"disabled"}
-                  activeClassName={"current"}
-                />
+                {!data ? (
+                  <PostListItemSkeleton />
+                ) : (
+                  <PostList blogData={data.items} />
+                )}
+                {/*TODO: After changing the page, should scroll to top */}
+                {data && (
+                  <ReactPaginate
+                    previousLabel={<FaArrowLeft />}
+                    nextLabel={<FaArrowRight />}
+                    pageCount={Math.ceil(data.total / PAGE_SIZE)}
+                    onPageChange={fetchMoreEntries}
+                    containerClassName={"pagination justify-content-start"}
+                    previousLinkClassName={"prev"}
+                    nextLinkClassName={"next"}
+                    disabledClassName={"disabled"}
+                    activeClassName={"current"}
+                  />
+                )}
               </div>
               <div className="col-lg-4"></div>
             </div>
@@ -62,3 +64,4 @@ export default function BlogHome() {
     </>
   );
 }
+// Image by <a href="https://www.freepik.com/free-psd/3d-illustration-human-avatar-profile_58509057.htm#query=default%20avatar&position=39&from_view=keyword&track=ais&uuid=cb3bbe3b-6e10-4a44-a39b-ebf587ab07a4">Freepik</a>
