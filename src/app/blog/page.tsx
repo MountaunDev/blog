@@ -48,7 +48,7 @@ export default function BlogHome() {
                 <ReactPaginate
                   previousLabel={<FaArrowLeft />}
                   nextLabel={<FaArrowRight />}
-                  pageCount={4}
+                  pageCount={Math.ceil(data.total / PAGE_SIZE)}
                   onPageChange={fetchMoreEntries}
                   containerClassName={"pagination justify-content-start"}
                   previousLinkClassName={"prev"}
