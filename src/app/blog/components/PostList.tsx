@@ -33,14 +33,14 @@ const PostList = ({ blogData }: Props) => {
                       <div className="center-text">
                         {blogItem.publishDate && (
                           <>
-                            <FaRegClock className="m-r-10" />
+                            <FaRegClock className="m-r-10" size={16} />
                             <h6 className="m-r-25 font-blog">
                               {extractDate_dd_mm_yyyy(blogItem.publishDate)}
                             </h6>{" "}
                           </>
                         )}
                         <>
-                          <FaMapMarkerAlt className="m-r-10" />
+                          <FaMapMarkerAlt className="m-r-10" size={16} />
                           <h6 className="font-blog">{"Girardot"}</h6>{" "}
                         </>
                       </div>
