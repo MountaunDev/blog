@@ -4,6 +4,7 @@ import blogImage from "@/app/public/images/12.jpg";
 import { FaRegClock, FaMapMarkerAlt } from "react-icons/fa";
 import { IModifiedBlogPostFields } from "@/types/blog";
 import Image from "next/image";
+import { extractDate_dd_mm_yyyy } from "@/common/util/date";
 interface Props {
   blogData: IModifiedBlogPostFields[];
 }
@@ -34,7 +35,7 @@ const PostList = ({ blogData }: Props) => {
                           <>
                             <FaRegClock className="m-r-10" />
                             <h6 className="m-r-25 font-blog">
-                              {blogItem.publishDate}
+                              {extractDate_dd_mm_yyyy(blogItem.publishDate)}
                             </h6>{" "}
                           </>
                         )}
@@ -49,7 +50,7 @@ const PostList = ({ blogData }: Props) => {
                       <p className="para2">{`${blogItem.shortDescription.substring(
                         0,
                         MAX_LENGTH,
-                      )} .....`}</p>
+                      )}...`}</p>
                     ) : (
                       <p className="para2">{blogItem.shortDescription}</p>
                     )}

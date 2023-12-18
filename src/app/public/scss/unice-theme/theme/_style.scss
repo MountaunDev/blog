@@ -13856,7 +13856,7 @@ error css end
 .typography_section {
   .typography-box {
     box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.1);
-    + .typography-box{
+    + .typography-box {
       margin-top: 30px;
     }
     p {
@@ -14001,7 +14001,7 @@ error css end
         justify-content: center;
       }
     }
-    &.typo-buttons{
+    &.typo-buttons {
       &:last-child {
         margin-bottom: 0;
         .typo-content {
@@ -16320,7 +16320,8 @@ footer {
   }
 }
 .bg-shadow-top-bottom {
-  box-shadow: inset 0 70px 75px -15px rgba(0, 0, 0, 0.8),
+  box-shadow:
+    inset 0 70px 75px -15px rgba(0, 0, 0, 0.8),
     inset 0 -70px 75px -15px rgba(0, 0, 0, 0.8);
 }
 .bg-shadow-top {
@@ -16835,6 +16836,7 @@ footer {
   margin-top: 16px;
   margin-bottom: 16px;
 }
-.btn-default.rounded-0{
+.btn-default.rounded-0 {
   border-radius: 0 !important;
 }
+

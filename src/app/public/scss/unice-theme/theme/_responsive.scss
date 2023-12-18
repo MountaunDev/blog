@@ -74,7 +74,7 @@
   .music {
     &.artist {
       .artist-text {
-          margin-bottom: -8px;
+        margin-bottom: -8px;
       }
     }
   }
@@ -388,17 +388,17 @@
 }
 
 @media only screen and (max-width: 1366px) {
-  .iframe-modal{
-    iframe{
+  .iframe-modal {
+    iframe {
       height: 430px !important;
     }
-  } 
-  .timimg-wedding{
-    .countdown{
-      ul{
-        li{
-          .event-counter{
-            .title{
+  }
+  .timimg-wedding {
+    .countdown {
+      ul {
+        li {
+          .event-counter {
+            .title {
               margin-top: 12px;
             }
           }
@@ -938,18 +938,18 @@
 }
 
 @media only screen and (max-width: 1199px) {
-  .m-b-35{
+  .m-b-35 {
     margin-bottom: 25px;
   }
-  .blog-sidebar{
-    .post-container{
+  .blog-sidebar {
+    .post-container {
       .post-head {
         font-size: 15px !important;
         margin-bottom: 4px;
         padding-top: 8px;
       }
     }
-  }  
+  }
   .portfolio-creative {
     &.creative2 {
       .head-sub-text {
@@ -961,7 +961,7 @@
       }
     }
   }
-  // about us 
+  // about us
   .about-detail {
     .about-font-header {
       margin-top: -11px;
@@ -2257,78 +2257,78 @@
 }
 
 @media only screen and (max-width: 991px) {
-  .iframe-modal{
-    iframe{
+  .iframe-modal {
+    iframe {
       height: 258px !important;
     }
-  } 
-  .navbar-toggler:focus{
+  }
+  .navbar-toggler:focus {
     box-shadow: none;
   }
-  .link-horizontal{
-    ul{
-      li.borders-right{
+  .link-horizontal {
+    ul {
+      li.borders-right {
         margin-right: 20px;
       }
     }
   }
-  .pagination_sec{
+  .pagination_sec {
     margin-top: 16px;
   }
-  .music.loding-header{
-    .navbar.openSidebar{
-      .btn-back{
-        h5{
+  .music.loding-header {
+    .navbar.openSidebar {
+      .btn-back {
+        h5 {
           color: $black;
         }
       }
     }
   }
-  .glass-header{
-    .header-text{
-      > div.d-flex{
+  .glass-header {
+    .header-text {
+      > div.d-flex {
         justify-content: center;
       }
     }
   }
-  .feature-header{
-    .resume.bg.bg-pink{
+  .feature-header {
+    .resume.bg.bg-pink {
       height: 100vh;
     }
   }
-  .product-right.pro_sticky_info{
-    .portfolio-detail{
-      .text-end.m-t-10{
+  .product-right.pro_sticky_info {
+    .portfolio-detail {
+      .text-end.m-t-10 {
         text-align: center !important;
       }
     }
   }
-  .event.speaker{
-    .speker-container{
-      .team-img{
+  .event.speaker {
+    .speker-container {
+      .team-img {
         margin-bottom: 6px;
       }
     }
-  }  
-  header{
-    .navbar{
-      .responsive-btn{
-        h5{
+  }
+  header {
+    .navbar {
+      .responsive-btn {
+        h5 {
           padding-top: 0;
         }
       }
     }
   }
-  .saas1.testimonial{
-    .testi-profile{
-      .flex-grow-1{
+  .saas1.testimonial {
+    .testi-profile {
+      .flex-grow-1 {
         margin-top: 32px;
       }
     }
-  }  
-  footer{
-    &.app2{
-      h5{
+  }
+  footer {
+    &.app2 {
+      h5 {
         padding-bottom: 30px;
       }
     }
@@ -2341,7 +2341,8 @@
       }
     }
   }
-  .multiple-carousel, .center-slide {
+  .multiple-carousel,
+  .center-slide {
     padding-top: 66px;
   }
   .saas2 {
@@ -2773,7 +2774,9 @@
         border-bottom: 1px solid rgb(221, 221, 221);
         h5 {
           text-align: right;
-          font-size: calc(18px + (20 - 18) * ((100vw - 300px) / (1920 - 300))) !important;
+          font-size: calc(
+            18px + (20 - 18) * ((100vw - 300px) / (1920 - 300))
+          ) !important;
           font-weight: 500;
           cursor: pointer;
           margin: 0;
@@ -5003,51 +5006,51 @@
 }
 
 @media only screen and (max-width: 767px) {
-  .feature-header{
-    .yoga.header{
+  .feature-header {
+    .yoga.header {
       height: auto;
-      .center-text{
+      .center-text {
         height: auto;
         margin-top: 6 0px;
         padding: 60px 0;
         min-height: unset;
-        .header-text{
-          h1{
+        .header-text {
+          h1 {
             margin-top: 0;
           }
         }
       }
-    } 
-    .resume.bg.bg-pink{
+    }
+    .resume.bg.bg-pink {
       height: auto;
-      .center-text{
+      .center-text {
         height: auto;
         margin-top: 60px;
         padding: 60px 0;
       }
     }
-  } 
-  .agency.testimonial-bg{
+  }
+  .agency.testimonial-bg {
     background: $copyright-agency !important;
   }
-  .subscribe{
-    .button-primary{
+  .subscribe {
+    .button-primary {
       right: 0;
     }
-  } 
-  .app1.subscribe.light{
-    .subscribe{
-      .button-primary{
+  }
+  .app1.subscribe.light {
+    .subscribe {
+      .button-primary {
         right: 0;
       }
     }
-  }  
-  .agency.blog{
-    .blog-agency{
-      .blog-contain{
-        .img-container{
-          .blog-info{
-            .font-blog{
+  }
+  .agency.blog {
+    .blog-agency {
+      .blog-contain {
+        .img-container {
+          .blog-info {
+            .font-blog {
               margin-top: -1px;
             }
           }
@@ -5055,153 +5058,153 @@
       }
     }
   }
-  footer{
-    .logo-sec{
-      .footer-logo{
+  footer {
+    .logo-sec {
+      .footer-logo {
         margin-bottom: 26px;
       }
     }
-  }     
-  .event{
-    .title.title3{
-      .main-title{
+  }
+  .event {
+    .title.title3 {
+      .main-title {
         margin-bottom: 12px;
       }
     }
-  }  
-  .event.subscribe-3{
-    .center-content{
-      .form-group{
+  }
+  .event.subscribe-3 {
+    .center-content {
+      .form-group {
         margin-bottom: 0 !important;
       }
     }
   }
-  .event.portfolio-section{
-    .isotopeContainer{
-      .isotopeSelector{
+  .event.portfolio-section {
+    .isotopeContainer {
+      .isotopeSelector {
         float: unset;
       }
     }
   }
-  .event.booking{
-    .container{
-      > .row{
+  .event.booking {
+    .container {
+      > .row {
         margin-bottom: 0;
       }
     }
   }
-  .agency.blog{
-    .blog-agency{
-      .blog-contain{
-        .img-container{
-          i{
+  .agency.blog {
+    .blog-agency {
+      .blog-contain {
+        .img-container {
+          i {
             margin-top: 1px;
           }
         }
       }
     }
   }
-  .agency.testimonial{
-    .testimonial-container{
-      .primary-border{
+  .agency.testimonial {
+    .testimonial-container {
+      .primary-border {
         display: none;
       }
     }
-  }  
-  .modal-no-header.close-right.modal-header{
-    .btn-close{
+  }
+  .modal-no-header.close-right.modal-header {
+    .btn-close {
       right: 10px;
     }
   }
-  .app1.download{
-    .center-mobile{
+  .app1.download {
+    .center-mobile {
       margin-bottom: -40px;
     }
   }
-  .feature-header{
-    .gym{
-      .gym-slider{
-        .slick-dots{
+  .feature-header {
+    .gym {
+      .gym-slider {
+        .slick-dots {
           bottom: 10%;
         }
       }
-    }  
+    }
   }
-  .portfolio-section.port-col{
-    .text-end.m-t-10{
+  .portfolio-section.port-col {
+    .text-end.m-t-10 {
       text-align: left !important;
     }
-    .portfolio-detail{
-      .detail-head{
+    .portfolio-detail {
+      .detail-head {
         margin-bottom: 16px;
       }
-    } 
-    .isotopeSelector{
+    }
+    .isotopeSelector {
       margin-bottom: 0;
     }
-    .m-t-50.container{
+    .m-t-50.container {
       margin-top: 20px;
     }
   }
-  .team-sec.team-grid.speaker{
-    .speker-container{
-      .team-img{
+  .team-sec.team-grid.speaker {
+    .speker-container {
+      .team-img {
         border-radius: 13px;
       }
-      .employee{
+      .employee {
         border-radius: 5px;
       }
     }
   }
-  .split{
-    .blog-list{
-      &:nth-child(even){
-        .img-container{
-          .center-text{
+  .split {
+    .blog-list {
+      &:nth-child(even) {
+        .img-container {
+          .center-text {
             justify-content: center;
           }
         }
       }
     }
   }
-  .yoga.event{
-    .event-container{
-      .event-info{
+  .yoga.event {
+    .event-container {
+      .event-info {
         margin-left: 14px;
       }
     }
-  }  
-  .saas2{
-    &.laptop-slider{
-      .slider-container{
-        .trainers-slider{
-          .item{
+  }
+  .saas2 {
+    &.laptop-slider {
+      .slider-container {
+        .trainers-slider {
+          .item {
             margin: 0;
           }
         }
       }
     }
   }
-  .resume{
-    .header7-content{
-      .header-sub-text{
-        h4{
+  .resume {
+    .header7-content {
+      .header-sub-text {
+        h4 {
           justify-content: center;
         }
       }
     }
   }
-  .subscribe{
-    .button-primary{
+  .subscribe {
+    .button-primary {
       right: 0;
     }
-  } 
-  .agency.speaker{
-    .team-img{
-      .social{
-        ul{
-          li{
-            &:last-child{
+  }
+  .agency.speaker {
+    .team-img {
+      .social {
+        ul {
+          li {
+            &:last-child {
               margin-right: 0;
             }
           }
@@ -5209,20 +5212,20 @@
       }
     }
   }
-  .agency{
-    .title{
-      .main-title{
+  .agency {
+    .title {
+      .main-title {
         margin-bottom: 8px;
       }
     }
-  }  
-  .speaker{
-    .team-img{
-      .social{
-        ul{
-          li{
-            a{
-              i{
+  }
+  .speaker {
+    .team-img {
+      .social {
+        ul {
+          li {
+            a {
+              i {
                 font-size: 13px;
               }
             }
@@ -5863,7 +5866,7 @@
   .services {
     .row {
       > div {
-        &:last-child{
+        &:last-child {
           .service {
             &.service-overlay {
               margin-bottom: 20px !important;
@@ -7755,16 +7758,16 @@
 }
 
 @media only screen and (max-width: 575px) {
-  header.yoga{
+  header.yoga {
     border-bottom: 1px solid rgba(#1f232c, 0.1);
   }
-  .swiper-container{
-    .swiper-wrapper{
-      .slick-slider{
-        .slick-list{
-          .slick-track{
-            .slick-slide{
-              img{
+  .swiper-container {
+    .swiper-wrapper {
+      .slick-slider {
+        .slick-list {
+          .slick-track {
+            .slick-slide {
+              img {
                 width: auto;
                 margin: 0 auto;
               }
@@ -7774,52 +7777,52 @@
       }
     }
   }
-  .portfolio-section{
-    .portfolio-text{
+  .portfolio-section {
+    .portfolio-text {
       margin-top: 5px;
     }
-    .isotopeSelector{
+    .isotopeSelector {
       margin-bottom: 20px;
     }
-  } 
-  .resume.about{
-    .title2{
-      ~ .text-center.m-t-50{
+  }
+  .resume.about {
+    .title2 {
+      ~ .text-center.m-t-50 {
         margin-top: 0;
       }
     }
   }
-  .coming-soon{
-    .center-content{
-      .form-group{
-        input{
+  .coming-soon {
+    .center-content {
+      .form-group {
+        input {
           padding: 10px 25px !important;
         }
       }
-      button{
+      button {
         padding: 10px 25px !important;
       }
     }
   }
-  .resume{
-    .header7-content{
-      .link-horizontal{
-        a{
+  .resume {
+    .header7-content {
+      .link-horizontal {
+        a {
           padding: 10px 25px !important;
         }
       }
     }
   }
-  .download{
-    .center-mobile{
+  .download {
+    .center-mobile {
       margin-top: -50px;
     }
-  } 
-  .agency.speaker{
-    .team-img{
-      .social{
-        ul{
-          li{
+  }
+  .agency.speaker {
+    .team-img {
+      .social {
+        ul {
+          li {
             margin-right: 5px;
           }
         }
@@ -9665,42 +9668,42 @@
   }
 }
 @media only screen and (max-width: 575px) and (min-width: 481px) {
-  .agency{
-    .icon-collection{
+  .agency {
+    .icon-collection {
       margin-bottom: 15px !important;
     }
-  } 
+  }
 }
 @media only screen and (max-width: 480px) {
-  .modal-no-header.close-up{
-    .btn-close{
+  .modal-no-header.close-up {
+    .btn-close {
       top: -20px;
       font-size: 12px;
     }
-  } 
-  .iframe-modal{
-    iframe{
+  }
+  .iframe-modal {
+    iframe {
       height: 172px !important;
     }
-  } 
-  .services{
-    .row{
-      > div{
-        .service.service-overlay{
+  }
+  .services {
+    .row {
+      > div {
+        .service.service-overlay {
           margin-top: 0 !important;
           margin-bottom: 0;
         }
       }
     }
   }
-  .saas1.pricing{
-    .plan-box{
-      > div{
-        &:first-child{
-          .price-box{
-            ul{
-              li{
-                &:nth-last-child(-n+3){
+  .saas1.pricing {
+    .plan-box {
+      > div {
+        &:first-child {
+          .price-box {
+            ul {
+              li {
+                &:nth-last-child(-n + 3) {
                   margin-left: 22px;
                 }
               }
@@ -9710,48 +9713,48 @@
       }
     }
   }
-  section.saas1.testimonial{
-    .testimonial{
+  section.saas1.testimonial {
+    .testimonial {
       margin: 0 20px;
     }
-  } 
-  .agency.testimonial{
-    .testimonial-container{
-      &.testimonial-container2{
-        .center-content{
+  }
+  .agency.testimonial {
+    .testimonial-container {
+      &.testimonial-container2 {
+        .center-content {
           margin-top: 10px;
         }
       }
     }
-  } 
-  .resume.header{
-    .header-text{
+  }
+  .resume.header {
+    .header-text {
       margin-bottom: 18px;
     }
-  } 
-  .testimonial{
-    .testimonial-slider{
-      .d-flex{
-        img{
+  }
+  .testimonial {
+    .testimonial-slider {
+      .d-flex {
+        img {
           margin: 0 auto;
         }
       }
     }
   }
-  .saas1.testimonial{
-    .testi-profile{
-      img{
+  .saas1.testimonial {
+    .testi-profile {
+      img {
         margin: 0 auto;
       }
     }
   }
-  .pricing{
-    .pricing-slider.price-margin{
-      .slick-list{
-        .slick-track{
-          .slick-slide{
-            > div{
-              .item{
+  .pricing {
+    .pricing-slider.price-margin {
+      .slick-list {
+        .slick-track {
+          .slick-slide {
+            > div {
+              .item {
                 padding: 10px 15px 0;
               }
             }
@@ -9760,45 +9763,47 @@
       }
     }
   }
-  .team-sec{
-    .container{
-      .speker-container{
-        .e-name{
+  .team-sec {
+    .container {
+      .speker-container {
+        .e-name {
           margin-bottom: 10px !important;
         }
       }
     }
-  }   
-  .typography_section{
-    .typography-box{
-      + .typography-box{
+  }
+  .typography_section {
+    .typography-box {
+      + .typography-box {
         margin-top: 18px;
       }
     }
-  } 
-  .blog-sec.blog{
-    .row{
-      > div{
-        &:last-child{
-          .blog-agency{
+  }
+  .blog-sec.blog {
+    .row {
+      > div {
+        &:last-child {
+          .blog-agency {
             margin-bottom: 30px;
           }
         }
       }
     }
-    .blog-agency{
+    .blog-agency {
       margin-bottom: 18px;
     }
-  } 
-  .blog-sidebar{
-    .post-container{
-      .post-head{
+  }
+  .blog-sidebar {
+    .post-container {
+      .post-head {
         padding-top: 8px;
         font-size: 15px !important;
       }
     }
-  }  
-  .copyright.yoga, .copyright.resume,.copyright.creative {
+  }
+  .copyright.yoga,
+  .copyright.resume,
+  .copyright.creative {
     .link-horizontal.social-link {
       ul {
         li {
@@ -9807,29 +9812,29 @@
       }
     }
   }
-  .portfolio-section.wedding{
-    .container{
-      .isotopeSelector{
+  .portfolio-section.wedding {
+    .container {
+      .isotopeSelector {
         margin-bottom: 18px;
       }
     }
-  }  
-  .saas1.service{
-    .about-chat{
-      .service-container{
-        .feature-content{
+  }
+  .saas1.service {
+    .about-chat {
+      .service-container {
+        .feature-content {
           padding: 0 10px;
-          hr{
+          hr {
             margin: 0 auto 8px;
           }
         }
       }
     }
-  }   
-  .music{
-    .sponsor{
-      div{
-        .sponsor-img{
+  }
+  .music {
+    .sponsor {
+      div {
+        .sponsor-img {
           margin-bottom: 26px;
         }
       }
@@ -9875,20 +9880,20 @@
       }
     }
   }
-  footer.footer2.agency{
-    .link-horizontal{
-      ul{
-        li.borders-right{
+  footer.footer2.agency {
+    .link-horizontal {
+      ul {
+        li.borders-right {
           margin-right: 2px;
         }
       }
     }
   }
-  .counter{
+  .counter {
     .counters.hover-counter {
       padding: 15px 0;
     }
-  } 
+  }
   .saas1 {
     &.testimonial {
       .testimonial-box {
@@ -10545,34 +10550,34 @@
     }
   }
 }
-@media only screen and (max-width: 420px) { 
-  .portfolio-section.fullwidth-portfolio{
-    .pagination_sec{
+@media only screen and (max-width: 420px) {
+  .portfolio-section.fullwidth-portfolio {
+    .pagination_sec {
       margin-top: 20px;
     }
   }
-  .blog-sidebar{
-    .post-container{
-      div{
-        .badge{
+  .blog-sidebar {
+    .post-container {
+      div {
+        .badge {
           top: 5px;
         }
       }
     }
-    .blog-title{
+    .blog-title {
       margin-bottom: 20px;
     }
-  } 
-  .wedding.subscribe{
-    .row.p-b-50{
+  }
+  .wedding.subscribe {
+    .row.p-b-50 {
       padding-bottom: 10px;
     }
   }
-  .agency.speaker{
-    .team-img{
-      .social{
-        ul{
-          li{
+  .agency.speaker {
+    .team-img {
+      .social {
+        ul {
+          li {
             margin-right: 10px;
           }
         }
@@ -11050,48 +11055,48 @@
 }
 
 @media only screen and (max-width: 360px) {
-  .login-modal{
-    .form-group{
+  .login-modal {
+    .form-group {
       margin-bottom: 16px;
     }
-  } 
-  .single_blog_item{
-    .blog-text{
-      .blog-description{
-        p{
+  }
+  .single_blog_item {
+    .blog-text {
+      .blog-description {
+        p {
           margin-bottom: 15px;
         }
       }
     }
   }
-  .blog-sidebar{
-    .post-container{
-      .post-head{
+  .blog-sidebar {
+    .post-container {
+      .post-head {
         padding-top: 12px;
       }
     }
-  }  
-  .agency.blog{
-    .m-r-25{
+  }
+  .agency.blog {
+    .m-r-25 {
       margin-right: 10px;
     }
   }
-  .counter{
-    .counters{
-      .count-number{
+  .counter {
+    .counters {
+      .count-number {
         margin-bottom: 14px;
       }
     }
-  }  
-  .schedule{
-    .cal-time.events{
-      .schedule-event{
-        .schedule-description{
+  }
+  .schedule {
+    .cal-time.events {
+      .schedule-event {
+        .schedule-description {
           font-size: 16px;
         }
       }
     }
-  }   
+  }
   header {
     &.ecommerce {
       nav {
