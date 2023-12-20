@@ -56,7 +56,7 @@ const PostList = ({ blogData }: Props) => {
                     )}
 
                     <div className="btn-bottom m-t-20">
-                      <Link href={"testing"}>read more</Link>
+                      <Link href={`blog/${blogItem.id}`}>read more</Link>
                     </div>
                   </div>
                 </div>

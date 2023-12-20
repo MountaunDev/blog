@@ -56,7 +56,7 @@ export default function BlogHome() {
                     nextLabel={<FaArrowRight />}
                     pageCount={Math.ceil(data.total / PAGE_SIZE)}
                     onPageChange={fetchMoreEntries}
-                    containerClassName={"pagination justify-content-start"}
+                    containerClassName={"pagination justify-content-center"}
                     previousLinkClassName={"prev"}
                     nextLinkClassName={"next"}
                     disabledClassName={"disabled"}
