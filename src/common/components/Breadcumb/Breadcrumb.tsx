@@ -3,7 +3,7 @@ import Image from "next/image";
 import bubble9 from "@/app/public/images/bubble-9.png";
 import bubble11 from "@/app/public/images/bubble-11.png";
 import line4 from "@/app/public/images/line-4.png";
-// import { Link } from 'react-router-dom';
+import Link from "next/link";
 
 interface Props {
   title: string;
@@ -17,7 +17,9 @@ const Breadcrumb = ({ title, page }: Props) => {
         <div className="breadcrumb">
           <ul className="list-unstyled">
             <li>
-              <a>Home</a>
+              <Link className="no-underline" href={`/blog/`}>
+                Home
+              </Link>
             </li>
             <li
               className="active"

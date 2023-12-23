@@ -1,4 +1,3 @@
-
 import SEO from "@/common/components/SEO";
 import ThemePicker from "@/common/components/ThemePicker";
 
