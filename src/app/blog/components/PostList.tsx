@@ -34,7 +34,7 @@ const PostList = ({ blogData }: Props) => {
               </div>
               <h5 className="title">
                 <Link
-                  className="no-underline text-lg"
+                  className="no-underline text-xl"
                   href={`/blog/${data.id}`}
                 >
                   {data.title}
