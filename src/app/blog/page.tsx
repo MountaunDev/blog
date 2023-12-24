@@ -8,6 +8,7 @@ import { IFetchBlogPostsResponse } from "@/types/blog";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import ReactPaginate from "react-paginate";
 import PostListItemSkeleton from "./components/PostListItemSkeleton";
+import { Row } from "react-bootstrap";
 
 const PAGE_SIZE = 2;
 
@@ -39,25 +40,27 @@ export default function BlogHome() {
         <div className="section-padding-equal">
           <div className="container">
             <div className="row row-40">
-              <div className="col-lg-8">
+              <div className="col-lg-9">
                 {!data ? (
                   <PostListItemSkeleton />
                 ) : (
-                  <PostList blogData={data.items} />
+                  <Row>
+                    <PostList blogData={data.items} />
+                  </Row>
                 )}
                 <ReactPaginate
                   previousLabel={<FaArrowLeft />}
                   nextLabel={<FaArrowRight />}
                   pageCount={Math.ceil(data.total / PAGE_SIZE)}
                   onPageChange={fetchMoreEntries}
-                  containerClassName={"pagination justify-content-start"}
+                  containerClassName={"pagination justify-content-center"}
                   previousLinkClassName={"prev"}
                   nextLinkClassName={"next"}
                   disabledClassName={"disabled"}
                   activeClassName={"current"}
                 />
               </div>
-              <div className="col-lg-4"></div>
+              <div className="col-lg-3"></div>
             </div>
           </div>
         </div>
