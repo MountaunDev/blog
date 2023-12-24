@@ -10,7 +10,7 @@ import ReactPaginate from "react-paginate";
 import PostListItemSkeleton from "./components/PostListItemSkeleton";
 import { Row } from "react-bootstrap";
 
-const PAGE_SIZE = 2;
+const PAGE_SIZE = 10;
 
 export default function BlogHome() {
   const [data, setData] = useState<IFetchBlogPostsResponse>();
@@ -48,17 +48,19 @@ export default function BlogHome() {
                     <PostList blogData={data.items} />
                   </Row>
                 )}
-                <ReactPaginate
-                  previousLabel={<FaArrowLeft />}
-                  nextLabel={<FaArrowRight />}
-                  pageCount={Math.ceil(data.total / PAGE_SIZE)}
-                  onPageChange={fetchMoreEntries}
-                  containerClassName={"pagination justify-content-center"}
-                  previousLinkClassName={"prev"}
-                  nextLinkClassName={"next"}
-                  disabledClassName={"disabled"}
-                  activeClassName={"current"}
-                />
+                {data.total > PAGE_SIZE && (
+                  <ReactPaginate
+                    previousLabel={<FaArrowLeft />}
+                    nextLabel={<FaArrowRight />}
+                    pageCount={Math.ceil(data.total / PAGE_SIZE)}
+                    onPageChange={fetchMoreEntries}
+                    containerClassName={"pagination justify-content-center"}
+                    previousLinkClassName={"prev"}
+                    nextLinkClassName={"next"}
+                    disabledClassName={"disabled"}
+                    activeClassName={"current"}
+                  />
+                )}
               </div>
               <div className="col-lg-3"></div>
             </div>

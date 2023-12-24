@@ -50,7 +50,7 @@ const PostList = ({ blogData }: Props) => {
               )}
               <Link
                 href={`/blog/${data.id}`}
-                className="text-blue-600 visited:text-red-600 no-underline"
+                className="text-blue-600 no-underline"
               >
                 Leer más
               </Link>
