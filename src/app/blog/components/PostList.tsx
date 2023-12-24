@@ -17,7 +17,7 @@ const PostList = ({ blogData }: Props) => {
         <div className="col-md-6" key={data.id}>
           <div className="blog-grid blog-post-container">
             <PostThumbnail imagesBanner={data.imagesBanner} />
-            <div className="p-6">
+            <div className="pb-6 px-6">
               <div className="center-text flex gap-4 mb-2">
                 {data.publishDate && (
                   <div className="flex gap-2 items-center">
@@ -33,7 +33,10 @@ const PostList = ({ blogData }: Props) => {
                 </div>
               </div>
               <h5 className="title">
-                <Link className="no-underline" href={`/blog/${data.id}`}>
+                <Link
+                  className="no-underline text-lg"
+                  href={`/blog/${data.id}`}
+                >
                   {data.title}
                 </Link>
               </h5>
