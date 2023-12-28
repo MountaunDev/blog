@@ -1,12 +1,18 @@
+import { IFetchBlogPostsResponse } from "@/types/blog";
 import { createClient } from "contentful";
 import { formatEntryAndRichTextFields } from "./util";
-import { IFetchBlogPostsResponse } from "@/types/blog";
 
 const client = createClient({
   space: "dcyvpoci5no4",
   accessToken: "slzfbfWr8KXSW597CfdS8BmRMY5Z5wRSqY2KHEpXf2s",
   environment: "master",
 });
+
+// const client = createClient({
+//   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID || "",
+//   accessToken: process.env.NEXT_PUBLIC_ONTENTFUL_ACCESS_TOKEN || "",
+//   environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT || "",
+// });
 
 export async function fetchBlogEntries(
   pageNumber: number,
@@ -48,5 +54,27 @@ export async function fetchEntryById(entryId: string, contentType: string) {
   } catch (error) {
     console.error("Error fetching entry:", error);
     return null;
+  }
+}
+
+interface FetchAllEntriesProps {
+  content_type: string;
+}
+
+export async function fetchAllEntries<T>({
+  content_type,
+}: FetchAllEntriesProps): Promise<{ total: number; items: T[] }> {
+  try {
+    const response = await client.getEntries({
+      content_type,
+      order: "-fields.label" as any,
+    });
+    const formatedResponse = formatEntryAndRichTextFields(response.items);
+    return {
+      total: response.total,
+      items: formatedResponse,
+    };
+  } catch (error) {
+    throw error;
   }
 }

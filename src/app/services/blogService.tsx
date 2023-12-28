@@ -4,7 +4,7 @@ import {
   fetchEntryById,
 } from "@/contentful/index";
 import { IFetchBlogPostsResponse } from "@/types/blog";
-import { FetchAllTopicsResponse } from "@/types/topic";
+import { EnhancedTopicsFields, FetchAllTopicsResponse } from "@/types/topic";
 
 export async function fetchBlogPosts(
   pageNumber: number,
@@ -27,7 +27,9 @@ export async function getPostById(postId: string): Promise<any> {
 
 export async function getAllTopics(): Promise<FetchAllTopicsResponse> {
   try {
-    return await fetchAllEntries({ content_type: "topics" });
+    return await fetchAllEntries<EnhancedTopicsFields>({
+      content_type: "topics",
+    });
   } catch (error) {
     throw error;
   }
