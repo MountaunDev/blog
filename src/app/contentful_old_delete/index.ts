@@ -3,9 +3,9 @@ import { formatEntryAndRichTextFields } from "./util";
 import { IFetchBlogPostsResponse } from "@/types/blog";
 
 const client = createClient({
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID || '',
-  accessToken: process.env.NEXT_PUBLIC_ONTENTFUL_ACCESS_TOKEN || '',
-  environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT || '',
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID || "",
+  accessToken: process.env.NEXT_PUBLIC_ONTENTFUL_ACCESS_TOKEN || "",
+  environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT || "",
 });
 
 export async function fetchBlogEntries(

@@ -72,6 +72,9 @@ export interface IBlogPostFields {
 
   /** postAuthor */
   postAuthor?: Entry<{ [fieldId: string]: unknown }> | undefined;
+
+  /** topics */
+  topics?: ITopics[] | undefined;
 }
 
 /** Each record here is a post in our blog */
@@ -93,9 +96,33 @@ export interface IBlogPost extends Entry<IBlogPostFields> {
   };
 }
 
-export type CONTENT_TYPE = "author" | "blogPost";
+export interface ITopicsFields {
+  /** label */
+  label?: string | undefined;
+}
 
-export type IEntry = IAuthor | IBlogPost;
+/** Each record should be one topic that will be used in the blogPost. */
+
+export interface ITopics extends Entry<ITopicsFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "topics";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export type CONTENT_TYPE = "author" | "blogPost" | "topics";
+
+export type IEntry = IAuthor | IBlogPost | ITopics;
 
 export type LOCALE_CODE = "en-US";
 

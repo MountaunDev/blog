@@ -9,6 +9,7 @@ import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import ReactPaginate from "react-paginate";
 import PostListItemSkeleton from "./components/PostListItemSkeleton";
 import { Row } from "react-bootstrap";
+import BlogSidebar from "./components/BlogSideBar/BlogSideBar";
 
 const PAGE_SIZE = 10;
 
@@ -62,7 +63,9 @@ export default function BlogHome() {
                   />
                 )}
               </div>
-              <div className="col-lg-3"></div>
+              <div className="col-lg-3">
+                <BlogSidebar />
+              </div>
             </div>
           </div>
         </div>
