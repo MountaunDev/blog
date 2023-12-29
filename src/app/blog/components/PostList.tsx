@@ -11,6 +11,10 @@ interface Props {
 const SHORT_DESCRIPTION_MAX_LENGHT = 130;
 
 const PostList = ({ blogData }: Props) => {
+  if (blogData.length === 0) {
+    //TODO: Create a nice component to render when there is no data to show
+    return "No he encontrado elementos";
+  }
   return (
     <>
       {blogData.map((data) => (

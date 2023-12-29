@@ -12,9 +12,15 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import TopicBadge from "./TopicBagde";
+import { FilterPostByBadge } from "../../page";
 
-const BlogSidebar = () => {
+interface BlogSideBarProps {
+  filterPostsByBadge: FilterPostByBadge;
+}
+
+const BlogSidebar = ({ filterPostsByBadge }: BlogSideBarProps) => {
   const [topicsList, setTopicsList] = React.useState<FetchAllTopicsResponse>();
+
   React.useEffect(() => {
     (async function () {
       const topicsData = await getAllTopics();
@@ -26,7 +32,12 @@ const BlogSidebar = () => {
     <div className="axil-sidebar">
       <div className="widget widget-categories">
         <h4 className="widget-title">Categories</h4>
-        {topicsList && <TopicBadge topicsList={topicsList.items} />}
+        {topicsList && (
+          <TopicBadge
+            filterPostsByBadge={filterPostsByBadge}
+            topicsList={topicsList.items}
+          />
+        )}
       </div>
       <div className="widget widge-social-share">
         <div className="blog-share">

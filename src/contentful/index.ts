@@ -78,3 +78,20 @@ export async function fetchAllEntries<T>({
     throw error;
   }
 }
+export async function fetchPostsByTopic(
+  topicsSelected: string[],
+): Promise<any> {
+  try {
+    const response = await client.getEntries({
+      content_type: "blogPost",
+      "fields.topics.sys.id[in]": topicsSelected.join(","),
+    });
+    const formatedResponse = formatEntryAndRichTextFields(response.items);
+    return {
+      total: response.total,
+      items: formatedResponse,
+    };
+  } catch (error) {
+    throw error;
+  }
+}
