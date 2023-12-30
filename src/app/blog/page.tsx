@@ -62,6 +62,7 @@ export default function BlogHome() {
             <div className="row row-40">
               <div className="col-lg-9">
                 {!data ? (
+                  // TODO: This Skeleton is not updated to the last design
                   <PostListItemSkeleton />
                 ) : (
                   <Row>
