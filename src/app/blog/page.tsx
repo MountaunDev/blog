@@ -1,16 +1,24 @@
 "use client";
-import Header from "@/common/components/Header/Header";
-import Breadcrumb from "@/common/components/Breadcumb/Breadcrumb";
-import PostList from "@/app/blog/components/PostList";
-import { fetchBlogPosts } from "../services/blogService";
 import { useEffect, useState } from "react";
-import { IFetchBlogPostsResponse } from "@/types/blog";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
-import ReactPaginate from "react-paginate";
-import PostListItemSkeleton from "./components/PostListItemSkeleton";
 import { Row } from "react-bootstrap";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import ReactPaginate from "react-paginate";
+import PostList from "@/app/blog/components/PostList";
+import Breadcrumb from "@/common/components/Breadcumb/Breadcrumb";
+import Header from "@/common/components/Header/Header";
+import { fetchPostsByTopic } from "@/contentful";
+import { IFetchBlogPostsResponse } from "@/types/blog";
+import { fetchBlogPosts } from "../services/blogService";
+import BlogSidebar from "./components/BlogSideBar/BlogSideBar";
+import PostListItemSkeleton from "./components/PostListItemSkeleton";
 
 const PAGE_SIZE = 10;
+
+export type FilterPostByBadge = ({
+  topicsSelected,
+}: {
+  topicsSelected: string[];
+}) => void;
 
 export default function BlogHome() {
   const [data, setData] = useState<IFetchBlogPostsResponse>();
@@ -19,6 +27,18 @@ export default function BlogHome() {
 
   const fetchMoreEntries = async ({ selected }: { selected: number }) => {
     setPageNumber(selected);
+  };
+
+  const filterPostsByBadge: FilterPostByBadge = async ({
+    topicsSelected,
+  }: any) => {
+    let postsData;
+    if (topicsSelected.length === 0) {
+      postsData = await fetchBlogPosts(pageNumber, PAGE_SIZE);
+    } else {
+      postsData = await fetchPostsByTopic(topicsSelected);
+    }
+    setData(postsData);
   };
 
   useEffect(() => {
@@ -42,6 +62,7 @@ export default function BlogHome() {
             <div className="row row-40">
               <div className="col-lg-9">
                 {!data ? (
+                  // TODO: This Skeleton is not updated to the last design
                   <PostListItemSkeleton />
                 ) : (
                   <Row>
@@ -62,7 +83,9 @@ export default function BlogHome() {
                   />
                 )}
               </div>
-              <div className="col-lg-3"></div>
+              <div className="col-lg-3">
+                <BlogSidebar filterPostsByBadge={filterPostsByBadge} />
+              </div>
             </div>
           </div>
         </div>

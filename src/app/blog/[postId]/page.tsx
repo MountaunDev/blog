@@ -1,13 +1,12 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-import Header from "@/common/components/Header/Header";
+import { getPostById } from "@/app/services/blogService";
 import Breadcrumb from "@/common/components/Breadcumb/Breadcrumb";
-import { getEntryById } from "@/app/services/blogService";
+import Header from "@/common/components/Header/Header";
 import { IModifiedBlogPostFields } from "@/types/blog";
-import PostAuthor from "./components/PostAuthor";
 import PostThumbnail from "../components/PostThumbnail";
+import PostAuthor from "./components/PostAuthor";
 
 const BlogDetails = ({ params }: { params: { postId: string } }) => {
   const { postId } = params;
@@ -15,7 +14,7 @@ const BlogDetails = ({ params }: { params: { postId: string } }) => {
 
   useEffect(() => {
     (async () => {
-      const data = await getEntryById(postId);
+      const data = await getPostById(postId);
       setPostData(data[0]);
     })();
   }, [postId]);
@@ -36,13 +35,15 @@ const BlogDetails = ({ params }: { params: { postId: string } }) => {
               <div className="col-lg-8">
                 <div className="single-blog">
                   <div className="single-blog-content blog-grid">
-                   <PostThumbnail imagesBanner={postData.imagesBanner} />
+                    <PostThumbnail imagesBanner={postData.imagesBanner} />
                     <div className="author">
                       <div className="author-thumb">
                         <img src={`/blog/author-1.png`} alt="Blog Author" />
                       </div>
                       <div className="info">
-                        <h6 className="author-name">{postData.postAuthor?.fields.name}</h6>
+                        <h6 className="author-name">
+                          {postData.postAuthor?.fields.name}
+                        </h6>
                         <ul className="blog-meta list-unstyled">
                           <li>{postData.publishDate}</li>
                           <li>{`${postData.minToRead || 10} min to read`}</li>

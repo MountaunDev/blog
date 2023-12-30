@@ -1,5 +1,5 @@
-import { Document } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { Document } from "@contentful/rich-text-types";
 
 export function formatEntryAndRichTextFields(items: any) {
   const processItem = (item: any) => {
@@ -11,7 +11,10 @@ export function formatEntryAndRichTextFields(items: any) {
         id: sys.id,
       };
     }
-    return null; // Handle the case where content is missing or falsy
+    return {
+      ...fields,
+      id: sys.id,
+    };
   };
 
   if (Array.isArray(items)) {

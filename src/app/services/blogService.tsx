@@ -1,17 +1,35 @@
-import { fetchBlogEntries, fetchEntryById } from "@/contentful/index";
-import { IFetchBlogPostsResponse, IModifiedBlogPostFields } from "@/types/blog";
+import {
+  fetchAllEntries,
+  fetchBlogEntries,
+  fetchEntryById,
+} from "@/contentful/index";
+import { IFetchBlogPostsResponse } from "@/types/blog";
+import { EnhancedTopicsFields, FetchAllTopicsResponse } from "@/types/topic";
 
-export async function fetchBlogPosts(pageNumber: number, pageSize: number): Promise<IFetchBlogPostsResponse> {
-  try { 
+export async function fetchBlogPosts(
+  pageNumber: number,
+  pageSize: number,
+): Promise<IFetchBlogPostsResponse> {
+  try {
     return await fetchBlogEntries(pageNumber, pageSize);
   } catch (error) {
     throw error;
   }
 }
 
-export async function getEntryById(postId: string): Promise<any> {
+export async function getPostById(postId: string): Promise<any> {
   try {
     return await fetchEntryById(postId, "blogPost");
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function getAllTopics(): Promise<FetchAllTopicsResponse> {
+  try {
+    return await fetchAllEntries<EnhancedTopicsFields>({
+      content_type: "topics",
+    });
   } catch (error) {
     throw error;
   }
