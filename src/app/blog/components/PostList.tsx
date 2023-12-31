@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 import { FaMapMarkedAlt, FaRegClock } from "react-icons/fa";
 import PostThumbnail from "./PostThumbnail";
+import { useRouter } from "next/navigation";
 interface Props {
   blogData: IModifiedBlogPostFields[];
 }
@@ -11,6 +12,12 @@ interface Props {
 const SHORT_DESCRIPTION_MAX_LENGHT = 130;
 
 const PostList = ({ blogData }: Props) => {
+  const router = useRouter();
+
+  const navigateToBlogPost = (postId: string) => {
+    router.push(`/blog/${postId}`);
+  };
+
   if (blogData.length === 0) {
     //TODO: Create a nice component to render when there is no data to show
     return "No he encontrado elementos";
@@ -18,10 +25,13 @@ const PostList = ({ blogData }: Props) => {
   return (
     <>
       {blogData.map((data) => (
-        <Link
-          className="col-md-6 cursor-pointer no-underline"
+        <div
+          role="button"
+          tabIndex={0}
+          aria-label="Click Me"
+          className="col-md-6 cursor-pointer "
           key={data.id}
-          href={`/blog/${data.id}`}
+          onClick={() => navigateToBlogPost(data.id!)}
         >
           <div className="blog-grid blog-post-container">
             <PostThumbnail imagesBanner={data.imagesBanner} />
@@ -64,7 +74,7 @@ const PostList = ({ blogData }: Props) => {
               </Link>
             </div>
           </div>
-        </Link>
+        </div>
       ))}
     </>
   );

@@ -61,10 +61,6 @@ const BlogSidebar = ({
           />
         )}
       </div>
-      <div className="widget widget-recent-post">
-        <h4 className="widget-title">Recent post</h4>
-        <RecentPosts posts={posts} />
-      </div>
       <div className="widget widge-social-share">
         <div className="blog-share">
           <h5 className="title">Follow:</h5>
@@ -86,6 +82,11 @@ const BlogSidebar = ({
             </li>
           </ul>
         </div>
+      </div>
+
+      <div className="widget widget-recent-post">
+        <h4 className="widget-title">Recent post</h4>
+        <RecentPosts posts={posts} />
       </div>
     </div>
   );
