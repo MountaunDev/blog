@@ -84,7 +84,10 @@ export default function BlogHome() {
                 )}
               </div>
               <div className="col-lg-3">
-                <BlogSidebar filterPostsByBadge={filterPostsByBadge} />
+                <BlogSidebar
+                  filterPostsByBadge={filterPostsByBadge}
+                  posts={data.items}
+                />
               </div>
             </div>
           </div>

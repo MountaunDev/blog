@@ -13,12 +13,15 @@ import {
 } from "react-icons/fa";
 import TopicBadge from "./TopicBagde";
 import { FilterPostByBadge } from "../../page";
+import RecentPosts from "./RecentPosts";
+import { IModifiedBlogPostFields } from "@/types/blog";
 
 interface BlogSideBarProps {
   filterPostsByBadge: FilterPostByBadge;
+  posts: IModifiedBlogPostFields[];
 }
 
-const BlogSidebar = ({ filterPostsByBadge }: BlogSideBarProps) => {
+const BlogSidebar = ({ filterPostsByBadge, posts }: BlogSideBarProps) => {
   const [topicsList, setTopicsList] = React.useState<FetchAllTopicsResponse>();
 
   React.useEffect(() => {
@@ -39,33 +42,22 @@ const BlogSidebar = ({ filterPostsByBadge }: BlogSideBarProps) => {
           />
         )}
       </div>
+      <div className="widget widget-recent-post">
+        <h4 className="widget-title">Recent post</h4>
+        <RecentPosts posts={posts} />
+      </div>
       <div className="widget widge-social-share">
         <div className="blog-share">
           <h5 className="title">Follow:</h5>
           <ul className="social-list list-unstyled">
-            <li>
-              <a href="https://facebook.com/">
-                <FaFacebookF />
-              </a>
-            </li>
             <li>
               <a href="https://twitter.com/">
                 <FaTwitter />
               </a>
             </li>
             <li>
-              <a href="https://www.instagram.com/">
-                <FaInstagram />
-              </a>
-            </li>
-            <li>
               <a href="https://www.linkedin.com/">
                 <FaLinkedinIn />
-              </a>
-            </li>
-            <li>
-              <a href="https://www.pinterest.com/">
-                <FaPinterest />
               </a>
             </li>
             <li>
@@ -75,16 +67,6 @@ const BlogSidebar = ({ filterPostsByBadge }: BlogSideBarProps) => {
             </li>
           </ul>
         </div>
-      </div>
-      <div className="widget widget-recent-post">
-        <h4 className="widget-title">Recent post</h4>
-        {/* <WidgetPost /> */}
-      </div>
-      <div className="widget widget-banner-ad">
-        <Link href="#">
-          {/* <img src={process.env.PUBLIC_URL + "/images/banner/widget-banner.png"} alt="banner" /> */}
-          image
-        </Link>
       </div>
     </div>
   );

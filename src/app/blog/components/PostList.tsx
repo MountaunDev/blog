@@ -18,7 +18,11 @@ const PostList = ({ blogData }: Props) => {
   return (
     <>
       {blogData.map((data) => (
-        <div className="col-md-6" key={data.id}>
+        <Link
+          className="col-md-6 cursor-pointer no-underline"
+          key={data.id}
+          href={`/blog/${data.id}`}
+        >
           <div className="blog-grid blog-post-container">
             <PostThumbnail imagesBanner={data.imagesBanner} />
             <div className="pb-6 px-6">
@@ -60,7 +64,7 @@ const PostList = ({ blogData }: Props) => {
               </Link>
             </div>
           </div>
-        </div>
+        </Link>
       ))}
     </>
   );
