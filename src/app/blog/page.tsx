@@ -8,7 +8,7 @@ import Breadcrumb from "@/common/components/Breadcumb/Breadcrumb";
 import Header from "@/common/components/Header/Header";
 import { fetchPostsByTopic } from "@/contentful";
 import { IFetchBlogPostsResponse } from "@/types/blog";
-import { fetchBlogPosts } from "../services/blogService";
+import { fetchBlogPosts, getPostsBySearchQuery } from "../services/blogService";
 import BlogSidebar from "./components/BlogSideBar/BlogSideBar";
 import PostListItemSkeleton from "./components/PostListItemSkeleton";
 
@@ -39,6 +39,15 @@ export default function BlogHome() {
       postsData = await fetchPostsByTopic(topicsSelected);
     }
     setData(postsData);
+  };
+
+  const searchPostsByQuery = async ({
+    searchCriteria,
+  }: {
+    searchCriteria: string;
+  }) => {
+    const data = await getPostsBySearchQuery(searchCriteria);
+    setData(data);
   };
 
   useEffect(() => {
@@ -85,6 +94,7 @@ export default function BlogHome() {
               </div>
               <div className="col-lg-3">
                 <BlogSidebar
+                  searchPostsByQuery={searchPostsByQuery}
                   filterPostsByBadge={filterPostsByBadge}
                   posts={data.items}
                 />
