@@ -12,7 +12,7 @@ export default function BlogLayout({
     <section id="blog">
       <SEO />
       <ThemePicker />
-      <main className="main-wraper">
+      <main className="main-wrapper">
         <Header />
         {children}
         <Footer />

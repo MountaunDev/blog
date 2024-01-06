@@ -1,45 +1,31 @@
+"use client";
 import React from "react";
 import Link from "next/link";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedin,
-  FaInstagram,
-} from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import { WiAlien } from "react-icons/wi";
 
 const Footer = () => {
   return (
     <footer className="footer-area">
       <div className="container">
         <div className="footer-top">
-          <div className="footer-social-link">
+          <div className="footer-social-link text-center">
+            {/* TODO: Replace the logo when we have a real logo for the blog */}
+            <WiAlien size={80} className="footer-blog-logo" />
             <ul className="list-unstyled mt-7">
               <li>
-                <Link href="https://facebook.com/">
+                <Link href="#">
                   <FaFacebookF />
                 </Link>
               </li>
               <li>
-                <Link href="https://twitter.com/">
+                <Link href="#">
                   <FaTwitter />
                 </Link>
               </li>
               <li>
-                <Link href="https://www.linkedin.com/">
-                  <FaLinkedin />
-                </Link>
-              </li>
-              <li>
-                <Link href="https://www.instagram.com/">
+                <Link href="#">
                   <FaInstagram />
-                </Link>
-              </li>
-            </ul>
-
-            <ul className="list-unstyled">
-              <li>
-                <Link className="no-underline" href="/blog">
-                  Home
                 </Link>
               </li>
             </ul>
