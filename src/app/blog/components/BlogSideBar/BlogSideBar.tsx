@@ -1,27 +1,24 @@
 "use client";
 import { getAllTopics } from "@/app/services/blogService";
 import { FetchAllTopicsResponse } from "@/types/topic";
-import Link from "next/link";
-import React from "react";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaPinterest,
-  FaTwitter,
-  FaYoutube,
-} from "react-icons/fa";
+import React, { FormEvent } from "react";
+import { FaLinkedinIn, FaSearch, FaTwitter, FaYoutube } from "react-icons/fa";
 import TopicBadge from "./TopicBagde";
 import { FilterPostByBadge } from "../../page";
 import RecentPosts from "./RecentPosts";
 import { IModifiedBlogPostFields } from "@/types/blog";
 
 interface BlogSideBarProps {
-  filterPostsByBadge: FilterPostByBadge;
   posts: IModifiedBlogPostFields[];
+  searchPostsByQuery: ({ searchCriteria }: { searchCriteria: string }) => void;
+  filterPostsByBadge: FilterPostByBadge;
 }
 
-const BlogSidebar = ({ filterPostsByBadge, posts }: BlogSideBarProps) => {
+const BlogSidebar = ({
+  filterPostsByBadge,
+  posts,
+  searchPostsByQuery,
+}: BlogSideBarProps) => {
   const [topicsList, setTopicsList] = React.useState<FetchAllTopicsResponse>();
 
   React.useEffect(() => {
@@ -31,8 +28,30 @@ const BlogSidebar = ({ filterPostsByBadge, posts }: BlogSideBarProps) => {
     })();
   }, []);
 
+  const handleSubmitSearch = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const target = e.target as typeof e.target & {
+      "search-button": { value: string };
+    };
+    const searchCriteria = target["search-button"].value;
+    searchPostsByQuery({ searchCriteria });
+  };
+
   return (
     <div className="axil-sidebar">
+      <div className="widget widget-search">
+        <h4 className="widget-title">Search</h4>
+        <form
+          action="#"
+          className="blog-search"
+          onSubmit={(e) => handleSubmitSearch(e)}
+        >
+          <input type="text" placeholder="Search…" name="search-button" />
+          <button className="search-button">
+            <FaSearch />
+          </button>
+        </form>
+      </div>
       <div className="widget widget-categories">
         <h4 className="widget-title">Categories</h4>
         {topicsList && (
@@ -41,10 +60,6 @@ const BlogSidebar = ({ filterPostsByBadge, posts }: BlogSideBarProps) => {
             topicsList={topicsList.items}
           />
         )}
-      </div>
-      <div className="widget widget-recent-post">
-        <h4 className="widget-title">Recent post</h4>
-        <RecentPosts posts={posts} />
       </div>
       <div className="widget widge-social-share">
         <div className="blog-share">
@@ -67,6 +82,11 @@ const BlogSidebar = ({ filterPostsByBadge, posts }: BlogSideBarProps) => {
             </li>
           </ul>
         </div>
+      </div>
+
+      <div className="widget widget-recent-post">
+        <h4 className="widget-title">Recent post</h4>
+        <RecentPosts posts={posts} />
       </div>
     </div>
   );

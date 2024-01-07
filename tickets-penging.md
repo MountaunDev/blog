@@ -2,23 +2,25 @@
 
 - In mobile devices the button to change the theme its not coming up. (investigate and fix it)
 
-- The postCard it's like too black, perhaps we need to add a different color for
-  the title and the content. -- Done
-
-- The size of the text its weird, we should decrease the paragraph
-  size and perhaps also user a smaller font in the time and location zone -- Done
-
-- Limit the amount of words in the card description, If there are more words
-  to show we should use an ellipsis to tell the user that there's more information,
-  but we should show only like three renglons of content. -- Done
-
-- Center the info content in the card, cause right now its reaching the border of
-  the card container and it does not look so good -- Done
-
   - The breadcumb part it just look so simple, think and discuss another
-    way more creative to show that part in the page.
+    way more creative to show that part in the page, maybe we can create something like https://viajarviviendo.com/
 
   - In the dark mode, should we change the color for the link "Leer mas"
+
+  - We need to stablish a real name for the blog and replace all the
+    mountainDev references in the project. also as part of this ticket we
+    should keep in mind that we will need to buy a new domain so we could check the
+    domain availability when picking the name.
+
+  - I am trying to pick a color for the footer part all these colors create a smooth
+    and nice transition, could you help me pick one,
+    `const footerColors = ['#F7F7F7', '#E8E8E8', '#F5F5F5', '#E5E5E5', '#F0F0F0', '#D9D9D9', '#E6F0FA', '#E8F5E9', '#F3E5F5', '#DDDDDD'];`
+
+    - El footer deberiamos renderizarlo en todas las paginas? O solamente en el
+      Home y deberiamos crear otro footer diferente para la pagina de postDeatils
+
+- In the postDetails page the image slider seems weird i think it's because all the
+  border radius are not the same (the top-left radius) looks different
 
 ## Notes to keep in mind
 

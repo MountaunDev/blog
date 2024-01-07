@@ -36,6 +36,30 @@ export async function fetchBlogEntries(
   }
 }
 
+export async function fetchPostsBySearchCriteria(
+  searchCriteria: string,
+): Promise<any> {
+  try {
+    const options = {
+      content_type: "blogPost",
+      "fields.title[match]": searchCriteria,
+    };
+
+    const response = await client.getEntries(options);
+    if (response.items.length > 0) {
+      const formatedResponse = formatEntryAndRichTextFields(response.items);
+      return {
+        total: response.total,
+        items: formatedResponse,
+      };
+    }
+    return null;
+  } catch (error) {
+    console.error("Error fetching entry:", error);
+    return null;
+  }
+}
+
 export async function fetchEntryById(entryId: string, contentType: string) {
   try {
     const options = {
@@ -60,7 +84,6 @@ export async function fetchEntryById(entryId: string, contentType: string) {
 interface FetchAllEntriesProps {
   content_type: string;
 }
-
 export async function fetchAllEntries<T>({
   content_type,
 }: FetchAllEntriesProps): Promise<{ total: number; items: T[] }> {

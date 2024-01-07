@@ -5,10 +5,9 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import ReactPaginate from "react-paginate";
 import PostList from "@/app/blog/components/PostList";
 import Breadcrumb from "@/common/components/Breadcumb/Breadcrumb";
-import Header from "@/common/components/Header/Header";
 import { fetchPostsByTopic } from "@/contentful";
 import { IFetchBlogPostsResponse } from "@/types/blog";
-import { fetchBlogPosts } from "../services/blogService";
+import { fetchBlogPosts, getPostsBySearchQuery } from "../services/blogService";
 import BlogSidebar from "./components/BlogSideBar/BlogSideBar";
 import PostListItemSkeleton from "./components/PostListItemSkeleton";
 
@@ -41,6 +40,15 @@ export default function BlogHome() {
     setData(postsData);
   };
 
+  const searchPostsByQuery = async ({
+    searchCriteria,
+  }: {
+    searchCriteria: string;
+  }) => {
+    const data = await getPostsBySearchQuery(searchCriteria);
+    setData(data);
+  };
+
   useEffect(() => {
     (async function () {
       const data = await fetchBlogPosts(pageNumber, PAGE_SIZE);
@@ -54,45 +62,43 @@ export default function BlogHome() {
 
   return (
     <>
-      <main className="main-wrapper">
-        <Header />
-        <Breadcrumb title="Blog" page="Blog" />
-        <div className="section-padding-equal">
-          <div className="container">
-            <div className="row row-40">
-              <div className="col-lg-9">
-                {!data ? (
-                  // TODO: This Skeleton is not updated to the last design
-                  <PostListItemSkeleton />
-                ) : (
-                  <Row>
-                    <PostList blogData={data.items} />
-                  </Row>
-                )}
-                {data.total > PAGE_SIZE && (
-                  <ReactPaginate
-                    previousLabel={<FaArrowLeft />}
-                    nextLabel={<FaArrowRight />}
-                    pageCount={Math.ceil(data.total / PAGE_SIZE)}
-                    onPageChange={fetchMoreEntries}
-                    containerClassName={"pagination justify-content-center"}
-                    previousLinkClassName={"prev"}
-                    nextLinkClassName={"next"}
-                    disabledClassName={"disabled"}
-                    activeClassName={"current"}
-                  />
-                )}
-              </div>
-              <div className="col-lg-3">
-                <BlogSidebar
-                  filterPostsByBadge={filterPostsByBadge}
-                  posts={data.items}
+      <Breadcrumb title="Blog" page="Blog" />
+      <div className="section-padding-equal">
+        <div className="container">
+          <div className="row row-40">
+            <div className="col-lg-9">
+              {!data ? (
+                // TODO: This Skeleton is not updated to the last design
+                <PostListItemSkeleton />
+              ) : (
+                <Row>
+                  <PostList blogData={data.items} />
+                </Row>
+              )}
+              {data.total > PAGE_SIZE && (
+                <ReactPaginate
+                  previousLabel={<FaArrowLeft />}
+                  nextLabel={<FaArrowRight />}
+                  pageCount={Math.ceil(data.total / PAGE_SIZE)}
+                  onPageChange={fetchMoreEntries}
+                  containerClassName={"pagination justify-content-center"}
+                  previousLinkClassName={"prev"}
+                  nextLinkClassName={"next"}
+                  disabledClassName={"disabled"}
+                  activeClassName={"current"}
                 />
-              </div>
+              )}
+            </div>
+            <div className="col-lg-3">
+              <BlogSidebar
+                searchPostsByQuery={searchPostsByQuery}
+                filterPostsByBadge={filterPostsByBadge}
+                posts={data.items}
+              />
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </>
   );
 }
